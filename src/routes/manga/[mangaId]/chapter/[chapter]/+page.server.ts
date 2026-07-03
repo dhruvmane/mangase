@@ -3,5 +3,6 @@ import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ( {params} ) => {
      const mangaId = params.mangaId;
-     return {mangaId: mangaId}
+     const chapter = params.chapter;
+     return {mangaId: mangaId, chapter: chapter}
 }

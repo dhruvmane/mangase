@@ -9,7 +9,7 @@
           <p class="text-2xl">your all-in-one website to read manga, with the community.</p>
 
           <div class="my-10 justify-self-center">
-               <button class="p-2 rounded bg-neutral-800" onclick={() => goto('/app')}>Get Started</button>
+               <button class="p-2 rounded bg-neutral-800" onclick={() => goto('/home')}>Get Started</button>
           </div>
      </div>
 </main>
