@@ -18,9 +18,7 @@ interface IManga {
      details: {
           name: string,
           description: string,
-          author: {
-               id: string,
-          }
+          authors: IAuthor[],
           publisher: {
                id: string,
           }

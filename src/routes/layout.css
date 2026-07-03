@@ -9,13 +9,15 @@
 }
 
 body {
-     height: 100dvh;
+     height: 100%;
      @apply bg-neutral-900 text-neutral-300
 }
 
 h1 {
-     @apply text-2xl     
+     font-family: "Google Sans";
+     @apply text-2xl
 }
+
 
 button, a {
      @apply hover:cursor-pointer hover:underline
@@ -32,4 +34,9 @@ button, a {
 @font-face {
      font-family: 'Special Elite';
      src: url('$lib/font/specialelite.ttf');
+}
+/* Instrument Serif */
+@font-face {
+     font-family: 'Instrument Serif';
+     src: url('$lib/font/instrumentserif.ttf');
 }

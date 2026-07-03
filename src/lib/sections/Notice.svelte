@@ -12,6 +12,8 @@
      // Icons
      import Cross from '$lib/assets/icons/trash.svg'
 
+     let { author = "the Mangase Team" } = $props();
+     
      // Get list of ALL markdown files
      const notices = import.meta.glob('/src/lib/text/*.md', {
           query: '?raw',
@@ -21,7 +23,6 @@
      // Choose the one desired to be shown as notice.
      const notice = notices[`/src/lib/text/${noticePath}.md`] ?? '';
 
-     let { author = "the Mangase Team" } = $props();
 
      let rawHTML;
      let parsedHTML: string | Node = $state("");
