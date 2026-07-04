@@ -3,5 +3,5 @@
 </script>
 
 <main class="m-2 p-2">
-     <Navbar />
+     <Navbar state="SEARCH"/>
 </main>

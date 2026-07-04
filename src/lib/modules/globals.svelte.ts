@@ -1,10 +1,24 @@
 interface IAppInstance {
+     _NOTIFICATIONS?: INotification[]
      _ACTIVE_PROFILE?: IProfile
      _AVAILABLE_PROFILES?: IProfile[],
      _NOTICE?: {
           fileName: string,
           showNotice: boolean
-     }
+     },
+     _USER_CONFIG?: {}
+}
+
+interface INotification {
+     text: string,
+     isShown: boolean,
+     type: INotificationType
+}
+
+enum INotificationType {
+     'SUCCESS',
+     'FAIL',
+     'PENDING'
 }
 
 interface IProfile {
@@ -47,11 +61,7 @@ interface IPublisher {
      mangas?: IManga[]
 }
 
-let AppInstance: IAppInstance = $state({
-     _NOTICE: {
-          fileName: "notice",
-          showNotice: true
-     }
-})
+let AppInstance: IAppInstance = $state({})
 
 export { AppInstance }
+export { INotificationType, type INotification }

@@ -99,7 +99,7 @@
                </div>
 
                <div class="flex flex-col gap-1">
-                    <button class="p-5 grid grid-cols-[15%_60%_25%] items-center rounded bg-neutral-900" aria-label="chapter" onclick={() => {goto(`/manga/${_mangaData.mangaId}/chapter/1`)}}></button>
+                    <button class="p-2 grid grid-cols-[15%_60%_25%] items-center rounded bg-neutral-900" aria-label="chapter" onclick={() => {goto(`/manga/${_mangaData.mangaId}/chapter/1`)}}>Ch. 1</button>
                </div>
           </div>
           
