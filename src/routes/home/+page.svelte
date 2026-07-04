@@ -7,7 +7,7 @@
 
 </script>
 
-<main class="p-2 m-2">
+<main class="p-2 m-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
     <Navbar />
     <Notice/>
     <Advert />

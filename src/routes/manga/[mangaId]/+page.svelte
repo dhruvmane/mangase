@@ -29,8 +29,11 @@
 
 </script>
 
-<main class="m-2 p-2 flex flex-col">
-     <Navbar />
+<main class="m-2 p-2">
+
+     <div class="mb-5">
+          <Navbar />
+     </div>
 
      <!-- Manga Details -->
      <div class="">
@@ -41,13 +44,13 @@
           </div>
 
           <!-- Manga Bookmarkrmation -->
-          <div class="bg-neutral-950 p-3 rounded-2xl">
+          <div class="bg-neutral-950 p-3 rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
                <h1 class="text-center">Chainsaw Man</h1>
                <h2 class="text-center">by Tatsuki Fujimoto</h2>
           </div>
 
           <!-- Buttons -->
-          <div class="flex items-center gap-1 justify-self-center m-2 p-2 bg-neutral-950 w-full rounded-2xl">
+          <div class="flex items-center gap-1 justify-self-center m-2 p-2 bg-neutral-950 w-full rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
                {#if !isBookmarked}
                     <button class="p-2 rounded-2xl bg-neutral-800 flex-1 min-w-0" onclick={() => {goto(`/manga/${_mangaData.mangaId}/chapter/1`)}}>Start Reading</button>
                     <button class="p-2 rounded-2xl bg-neutral-800 shrink-0" onclick={() => {isBookmarked = !isBookmarked}}>
@@ -68,7 +71,7 @@
           </div>
 
           <!-- More Manga Bookmarkrmation -->
-          <div class="w-full flex flex-col gap-2 bg-black rounded-2xl p-4">
+          <div class="flex flex-col gap-2 bg-black rounded-2xl p-4 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
                <div class="p-4 bg-neutral-900 rounded-2xl">
                     <h2>Origination: </h2>
                     <h2>Demographic: </h2>
@@ -89,7 +92,7 @@
           </div>
 
           <!-- Chapters -->
-          <div class="my-2 p-4 rounded-2xl bg-black flex flex-col gap-2">
+          <div class="my-2 p-4 rounded-2xl bg-black flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
                <div class="grid grid-cols-[75%_25%] items-center rounded-2xl py-2">
                     <div class="flex gap-1">
                          <img alt="share" src={Chapter} class="size-6 invert ml-2" title="Change Language">
@@ -104,7 +107,7 @@
           </div>
           
           <!-- Reviews -->
-          <div class="p-4 my-2 bg-black rounded-2xl">
+          <div class="p-4 my-2 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
                <h2>Reviews</h2>
                <div class="h-full rounded-2xl">
                     <div class="flex gap-x-1 overflow-y-auto my-2 rounded">
@@ -115,25 +118,25 @@
           </div>
 
           <!-- More Like This -->
-          <div class="p-4 my-2 bg-black rounded-2xl">
+          <div class="p-4 my-2 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
                <h2>More Like This</h2>
                <div class="grid grid-cols-3 my-2 gap-1 rounded overflow-y-auto max-h-[400px]">
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
                </div>
           </div>
           
           <!-- From This Author -->
-          <div class="p-4 my-2 bg-black rounded-2xl">
+          <div class="p-4 my-2 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
                <h2>From This Author</h2>
                <div class="grid grid-cols-3 my-2 gap-1 rounded overflow-y-auto max-h-[400px]">
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
-                    <button class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
+                    <button class="bg-neutral-50 aspect-3/4 rounded shrink-0" aria-label="manga" onclick={() => {goto("/manga/chainsaw-man/")}}></button>
                </div>
           </div>
 

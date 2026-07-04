@@ -4,7 +4,7 @@
 
 </script>
 
-<main class="m-2 p-2 flex flex-col gap-1">
+<main class="m-2 p-2 flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <Navbar />
      <div class="flex flex-col gap-5 p-2 bg-black rounded-2xl">
           <!-- App Settings -->

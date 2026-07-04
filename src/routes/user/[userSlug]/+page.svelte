@@ -10,10 +10,12 @@
      
 </script>
 
-<main class="m-2 p-2 flex flex-col gap-1">
+
+<main class="m-2 p-2  md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <Navbar />
+     <div class="flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <!-- Profile -->
-     <div class="flex items-center gap-2 p-4 rounded-2xl bg-black">
+     <div class="flex items-center gap-2 p-4 rounded-2xl bg-black ">
           <img alt="user" src={User} class="invert size-10">
           <div>
                <h1>{data.userSlug}</h1>
@@ -46,5 +48,5 @@
                {/if}
           </div>
      </div>
-
+     </div>
 </main>

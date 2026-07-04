@@ -6,6 +6,7 @@
 * {
      font-family: "Google Sans";
      scroll-behavior: smooth;
+     scrollbar-width: thin;
 }
 
 body {

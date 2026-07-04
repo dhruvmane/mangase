@@ -12,7 +12,7 @@
 
 </script>
 
-<main class="flex bg-black rounded-2xl items-center h-[50px] mb-2 border-neutral-500 p-2">
+<main class="flex justify-self-center w-full bg-black md:max-w-md lg:max-w-lg xl:max-w-xl rounded-2xl items-center h-[50px] mb-2 border-neutral-500 p-2">
      <div>
           <!-- Mangase Button -->
           <button class="bg-neutral-900 p-1 size-9 text-[15px] rounded-2xl" onclick={() => {goto("/home")}}>
@@ -22,7 +22,7 @@
      </div>
      
      {#if searchBarState === "SEARCH"}
-     <div class="p-2 text-white">
+     <div class="p-2 text-white w-full">
           <input type="text" class="w-full h-[20%] bg-neutral-950 rounded-2xl border-0 focus:ring-0 px-5">
      </div>
      {/if}
@@ -47,7 +47,7 @@
           {/if}
 
           {#if searchBarState === "SEARCH"}
-               <!-- Settings -->
+               <!-- DOWN -->
                <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {searchBarState = "MAIN"}}>
                     <img alt="search" src={Down} class="invert size-5">
                </button>
