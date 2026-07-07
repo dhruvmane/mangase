@@ -13,5 +13,10 @@ export default defineConfig({
 			},
 			adapter: adapter()
 		})
-	]
+	],
+	server: {
+		allowedHosts: [
+			"inquiry-spy-istanbul-involvement.trycloudflare.com"
+		]
+	}
 });

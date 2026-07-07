@@ -4,9 +4,9 @@
 
 
 * {
-     font-family: "Google Sans";
+     font-family: var(--font-mangase-main);
      scroll-behavior: smooth;
-     scrollbar-width: thin;
+     scrollbar-width: none;
 }
 
 body {
@@ -15,7 +15,6 @@ body {
 }
 
 h1 {
-     font-family: "Google Sans";
      @apply text-2xl
 }
 
@@ -40,4 +39,33 @@ button, a {
 @font-face {
      font-family: 'Instrument Serif';
      src: url('$lib/font/instrumentserif.ttf');
+}
+
+/* Map CSS variables into Tailwind's theme so utilities get generated */
+@theme {
+     --color-mangase-bg: var(--color-bg);
+     --font-mangase-main: var(--font-main)
+}
+
+/* Light theme (default) */
+:root,
+
+/* Sunset theme (custom example) */
+[data-theme="sunset"] {
+     --color-bg: #2d1b2e;
+}
+
+[data-theme="aaa"] {
+     --color-bg: #49a746;
+}
+
+/* Light */
+[data-theme="light"] {
+     --color-bg: #c53434;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+     --color-bg: #000000;
+     --font-main: "Google Sans"
 }

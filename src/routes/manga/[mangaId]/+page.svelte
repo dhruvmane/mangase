@@ -29,7 +29,7 @@
 
 </script>
 
-<main class="m-2 p-2">
+<main class="m-2 p-2 flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
 
      <div class="mb-5">
           <Navbar />

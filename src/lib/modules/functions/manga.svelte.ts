@@ -1,5 +1,6 @@
-const baseUrl = 'https://api.mangadex.org';
+import { AppInstance } from "../globals.svelte";
 
+const baseUrl = 'https://api.mangadex.org';
 
 interface ISearchParams {
      title?: string,
@@ -52,3 +53,19 @@ async function getMangaCovers(mangaId: string, coverFileName: string) {
           method: "GET"
      })
 }
+
+
+async function searchMangaQuery(q: string) {
+     // Log Search Activity
+     console.log(`USER_ACTION: Searched for '${q}' in /search.`)
+
+     const response = await fetch(`/api/search?${new URLSearchParams({ q })}`)
+     const data = await response.json()
+
+     if (AppInstance._USER_CONFIG?._SEARCH) {
+          AppInstance._USER_CONFIG._SEARCH = data.data
+     }
+
+}
+
+export { searchMangaQuery }

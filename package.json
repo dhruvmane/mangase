@@ -18,6 +18,8 @@
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.20",
 		"@tailwindcss/vite": "^4.3.0",
+		"@types/better-sqlite3": "^7.6.13",
+		"@types/pg": "^8.20.0",
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.6.0",
 		"tailwindcss": "^4.3.0",
@@ -25,7 +27,10 @@
 		"vite": "^8.0.16"
 	},
 	"dependencies": {
+		"better-sqlite3": "^12.11.1",
 		"dompurify": "^3.4.11",
-		"marked": "^18.0.5"
+		"fuse.js": "^7.4.2",
+		"marked": "^18.0.5",
+		"pg": "^8.22.0"
 	}
 }

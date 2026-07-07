@@ -8,7 +8,7 @@
 </script>
 
 <!-- Main Page Section -->
-<div class="border-black bg-black rounded-2xl p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+<div class="border-black bg-mangase-bg rounded-2xl p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <div class="h-full rounded-2xl p-2">
           <h1 class="flex items-center gap-2 text-2xl"><img alt="b" src={Sparkles} class="block invert size-5">Recently Updated</h1>
           <div class="flex gap-x-1 overflow-x-auto whitespace-nowrap my-2 rounded">

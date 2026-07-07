@@ -6,7 +6,20 @@ interface IAppInstance {
           fileName: string,
           showNotice: boolean
      },
-     _USER_CONFIG?: {}
+     _USER_CONFIG?: {
+          _SEARCH?: searchData[]
+     }
+}
+
+
+interface searchData {
+     id: string,
+     type: string,
+     attributes: {
+          title: {
+               'ja-ro': string
+          }
+     }
 }
 
 interface INotification {
@@ -61,7 +74,9 @@ interface IPublisher {
      mangas?: IManga[]
 }
 
-let AppInstance: IAppInstance = $state({})
+let AppInstance: IAppInstance = $state({
+     _USER_CONFIG: {}
+})
 
 export { AppInstance }
 export { INotificationType, type INotification }

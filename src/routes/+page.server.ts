@@ -1,7 +1,7 @@
 import { mangadexApiRefreshToken, setTokens } from "$lib/modules/globals/mangadexApiCredentials.svelte"
 import { MANGADEX_CLIENT_ID, MANGADEX_CLIENT_SECRET, MANGADEX_PASSWORD, MANGADEX_USERNAME } from "$env/static/private"
 import type { PageServerLoad } from "./$types"
-
+ 
 const authTokenRoute = "https://auth.mangadex.org/realms/mangadex/protocol/openid-connect/token"
 
 // First Connection => Returns Access Token + Refresh Token
@@ -47,5 +47,5 @@ async function refreshAuthToken(refresh_token: string) {
 }
 
 export const load: PageServerLoad = async () => {
-     // getApiAuthToken()
+     
 }

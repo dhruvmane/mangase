@@ -1,12 +1,11 @@
+
 <script>
      import Navbar from "$lib/components/Navbar.svelte";
-
-
 </script>
 
-<main class="m-2 p-2 flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+<main class="m-2 p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <Navbar />
-     <div class="flex flex-col gap-5 p-2 bg-black rounded-2xl">
+     <div class="flex flex-col gap-2 p-2 bg-black rounded-2xl">
           <!-- App Settings -->
           <div class="p-2">
                <h2 class="text-2xl">App Settings</h2>
@@ -74,11 +73,19 @@
                          <h2 class="text">Account Information</h2>
                          <label class="text-[13px] text-neutral-600">
                               your username
-                              <input type="text" class="bg-none w-full bg-neutral-950 focus:ring-0 border-0">
+                              <div class="flex items-center gap-1">
+                                   <input type="email" class="flex-1 bg-none w-full bg-neutral-950 focus:ring-0 border-0">
+                                   <button class="bg-neutral-950 p-2.5 rounded text-[13px] my-2">Change</button>
+                              </div>
+                              
                          </label>
                          <label class="text-[13px] text-neutral-600">
                               your email
-                              <input type="email" class="bg-none w-full bg-neutral-950 focus:ring-0 border-0">
+                              <div class="flex items-center gap-1">
+                                   <input type="email" class="flex-1 bg-none w-full bg-neutral-950 focus:ring-0 border-0">
+                                   <button class="bg-neutral-950 p-2.5 rounded text-[13px] my-2">Change</button>
+                              </div>
+
                          </label>
                          <button class="bg-neutral-950 p-2 rounded text-[13px] my-2">Change Password</button>
                     </div>
@@ -138,3 +145,9 @@
           </div>
      </div>
 </main>
+
+<style>
+     * {
+          scrollbar-width: none;
+     }
+</style>

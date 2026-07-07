@@ -11,7 +11,7 @@
 </script>
 
 
-<main class="m-2 p-2  md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <Navbar />
      <div class="flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <!-- Profile -->
