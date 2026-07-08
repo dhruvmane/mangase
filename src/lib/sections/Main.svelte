@@ -1,6 +1,7 @@
 <script>
 
-     import { AppInstance } from '$lib/modules/globals.svelte';
+     // import { AppInstance } from '$lib/modules/globals.svelte';
+     import { page } from '$app/state';
 
      // Icons
      // Beautify:
@@ -13,7 +14,7 @@
 <!-- Main Page Section -->
 <div class="border-black bg-mangase-bg rounded-2xl p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <div class="h-full rounded-2xl p-2">
-     {#if AppInstance._USER_CONFIG}
+     {#if page.data.user}
           <h1 class="flex items-center gap-2 text-2xl"><img alt="b" src={Sparkles} class="block invert size-5">Recently Updated</h1>
           <div class="flex gap-x-1 overflow-x-auto whitespace-nowrap my-2 rounded">
                <div class="bg-neutral-50 aspect-3/4 w-[100px] rounded shrink-0"></div>

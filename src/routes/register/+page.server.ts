@@ -4,10 +4,11 @@ import { eq } from 'drizzle-orm';
 import { users } from '$lib/server/db/schema';
 import bcrypt from 'bcrypt';
 import type { PageServerLoad } from '../$types';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
+import { createSession } from '$lib/server/auth';
 
 export const actions: Actions = {
-     default: async ({request}) => {
+     default: async ({request, cookies}) => {
           // Get Data
           const formData = await request.formData()
           const email = formData.get("email") as string
@@ -28,13 +29,33 @@ export const actions: Actions = {
                console.log('[SERVER_ERROR] Another Account with this Email is already Registered.')
                return fail(400, { error: 'Another Account with this Email is already registered.' });
           }
+          
+          // Check if username is already taken.
+          const checkNamePreexistance = await db.select().from(users).where(eq(users.name, name))
+          if (checkNamePreexistance) {
+                    console.log('[SERVER_ERROR] Username is Already Taken.')
+                    return fail(400, { error: 'Username is Already Taken.' });
+          }
 
           const passwordHash = await bcrypt.hash(plainPassword, 12);
-
+          const generatedUserId = crypto.randomUUID()
+          
+          // Insert to DB
           const newUser = await db
                .insert(users).values({email, name, password_hash: passwordHash, id: crypto.randomUUID()}).returning({name: users.name, email: users.email})
-     
-          return { success: true, user: newUser }
+          
+          // Store Session Token on Register/Login
+          const {token, expiresAt} = await createSession(generatedUserId)
+
+          cookies.set("session", token, {
+               path: "/",
+               httpOnly: true,
+               secure: true,
+               sameSite: "lax",
+               expires: expiresAt
+          })
+          
+          throw redirect(303, '/home')
      }
 }
 

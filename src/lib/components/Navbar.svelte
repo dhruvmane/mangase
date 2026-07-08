@@ -6,6 +6,8 @@
      import Down from '$lib/assets/icons/down.svg'
      import Logo from '$lib/assets/favicon/favicon.svg'
 
+     import { page } from '$app/state'
+
      import { goto } from '$app/navigation';
 
      import { searchMangaQuery } from '$lib/modules/functions/manga.svelte'
@@ -47,7 +49,7 @@
                <img alt="search" src={Search} class="invert size-5">
           </button>
           <!-- Profile -->
-          <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto("/user/barden")}}>
+          <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto(`/user/${page.data.user.name}`)}}>
                <img alt="profile" src={Profile} class="invert size-5">
           </button>
           
@@ -63,7 +65,6 @@
                     <img alt="search" src={Down} class="invert size-5">
                </button>
           {/if}
-          
           
           
      </div>

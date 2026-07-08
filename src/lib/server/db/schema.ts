@@ -1,15 +1,17 @@
-import { pgTable, serial, integer, text, uuid, timestamp } from 'drizzle-orm/pg-core';
+import { pgTable, text, uuid, timestamp } from 'drizzle-orm/pg-core';
 
-export const task = pgTable('task', {
-	id: serial('id').primaryKey(),
-	title: text('title').notNull(),
-	priority: integer('priority').notNull().default(1)
-});
-
+// Store Users
 export const users = pgTable("users", {
 	id: uuid("id").defaultRandom().primaryKey(),
 	name: text("name").notNull(),
-	email: text("email").notNull(),
+	email: text("email").notNull().unique(),
 	password_hash: text("password_hash").notNull(),
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+})
+
+// Database Table to store Session Tokens
+export const sessions = pgTable("sessions", {
+	id: text("id").primaryKey(),
+	userId: uuid("user_id").notNull().references(() => users.id, {onDelete: 'cascade'}),
+	expiresAt: timestamp("expires_at", {withTimezone: true}).notNull()
 })

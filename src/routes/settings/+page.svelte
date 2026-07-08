@@ -134,12 +134,11 @@
                          <h2 class="text">Actions</h2>
                          <p class="text-[12px] text-gray-600">Take action related to your account.</p>
                          <div class="my-2 flex gap-1 text-[12px]">
+                              <button class="text-center py-2 px-4 flex-1 rounded bg-neutral-800">Log Out</button>
                               <button class="text-center py-2 px-4 flex-1 rounded bg-red-700">Delete Account</button>
                               <button class="text-center py-2 px-4 flex-1 rounded bg-indigo-900">Disable Account</button>
                          </div>
                     </div>
-                    
-
 
                </div>
           </div>
