@@ -16,12 +16,12 @@
 
 </script>
 
-<main class="flex justify-self-center w-full bg-black md:max-w-md lg:max-w-lg xl:max-w-xl rounded-2xl items-center h-[50px] mb-2 border-neutral-500 p-2">
+<main class="flex m-auto w-full overflow-hidden bg-black md:max-w-sm rounded-2xl items-center h-[50px] mb-2 border-neutral-500 p-2">
      {#if searchBarState !== "SEARCH"}
      <div>
           <!-- Mangase Button -->
           <button class="bg-neutral-900 flex items-center size-9 text-[15px] rounded-2xl" onclick={() => {goto("/home")}}>
-               <img src={Logo} alt="logo">
+               <img src={Logo} alt="logo" class="object-fit">
           </button>
           
      </div>

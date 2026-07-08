@@ -11,9 +11,9 @@
 </script>
 
 
-<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
      <Navbar />
-     <div class="flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+     <div class="flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
      <!-- Profile -->
      <div class="flex items-center gap-2 p-4 rounded-2xl bg-black ">
           <img alt="user" src={User} class="invert size-10">

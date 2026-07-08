@@ -4,7 +4,6 @@
 
      const links = [
           { label: 'About Us', href: '/about-us' },
-          { label: 'Source Code', href: 'https://github.com/dhruvmane/mangase' },
      ];
 </script>
 

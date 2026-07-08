@@ -3,7 +3,7 @@
      import Navbar from "$lib/components/Navbar.svelte";
 </script>
 
-<main class="m-2 p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+<main class="p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
      <Navbar />
      <div class="flex flex-col gap-2 p-2 bg-black rounded-2xl">
           <!-- App Settings -->

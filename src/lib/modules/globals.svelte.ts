@@ -74,8 +74,8 @@ interface IPublisher {
      mangas?: IManga[]
 }
 
-let AppInstance: IAppInstance = $state({
-     _USER_CONFIG: {}
+let AppInstance = $state({
+     _TASKS: {}
 })
 
 export { AppInstance }

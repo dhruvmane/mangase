@@ -11,12 +11,13 @@ export default defineConfig({
 				// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
 				runes: ({ filename }) => filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter()
+			adapter: adapter(),
+			typescript: {
+				config: (config) => {
+					config.include.push('../drizzle.config.ts');
+				}
+			}
 		})
 	],
-	server: {
-		allowedHosts: [
-			"inquiry-spy-istanbul-involvement.trycloudflare.com"
-		]
-	}
+	server: { allowedHosts: ["aging-circuits-buy-grass.trycloudflare.com"] }
 });

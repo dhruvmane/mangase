@@ -6,7 +6,7 @@
 
 </script>
 
-<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+<main class="p-2 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
      <Navbar state="SEARCH"/>
      {#if searchQueryResults}
           {#each searchQueryResults as result}
