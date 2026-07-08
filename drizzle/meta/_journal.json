@@ -15,6 +15,13 @@
       "when": 1783511469397,
       "tag": "0001_deep_blockbuster",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1783515379089,
+      "tag": "0002_cuddly_lady_bullseye",
+      "breakpoints": true
     }
   ]
 }
