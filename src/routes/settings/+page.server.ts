@@ -47,7 +47,7 @@ export const actions: Actions = {
           user.profilePicKey = profilePicKey
 
           try {
-               await db.update(users).set({profilePicKey: profilePicKey}).where(eq(users.email, user.email))
+               await db.update(users).set({profilePicKey: profilePicKey, profilePicURL: profilePicURL}).where(eq(users.email, user.email))
           } catch (err) {
                console.log(err)
           }
