@@ -11,12 +11,14 @@
      import { enhance } from "$app/forms";
 
      let selectedFile = null
-     let profilePicURL: string | undefined = $state(page.data.user.profilePicURL)
+     let profilePicURL: string | undefined = $state(page.data.user?.profilePicURL ?? "")
+     let profilePicKey: string | undefined = $state("")
      let profilePicInputForm: any;
 
      const {startUpload} = createUploadThing("imageUploader", {
           onClientUploadComplete: (res) => {
                profilePicURL = res[0].ufsUrl
+               profilePicKey = res[0].key
                profilePicInputForm.requestSubmit()
           },
           onUploadError(e) {
@@ -33,6 +35,7 @@
                selectedFile = file
                profilePicURL = await startUpload([file]).then(data => {
                     if(data) {
+                         profilePicKey = data[0].key
                          return data[0].ufsUrl
                     }
                })
@@ -109,7 +112,7 @@
      <div class="flex flex-col gap-5 p-2 bg-black rounded-2xl">
           <!-- Account Settings -->
           <div class="p-2">
-               <h2 class="text-2xl">Account Settings</h2>
+               <h2 class="text-2xl" id="account-settings">Account Settings</h2>
                {#if page.data.user}
                     <div class="flex flex-col my-2 gap-5 p-2">
                     
@@ -131,7 +134,8 @@
                                                        method="POST"
                                                        use:enhance={({ formData }) => {
                                                             formData.append('profilePicURL', profilePicURL ?? '');
-                                                       
+                                                            formData.append('profilePicKey', profilePicKey ?? '');
+                                                            
                                                             return async ({ result, update }) => {
                                                                  await update();
                                                             };

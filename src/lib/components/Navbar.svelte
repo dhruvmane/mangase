@@ -12,6 +12,7 @@
 
      import { searchMangaQuery } from '$lib/modules/functions/manga.svelte'
 
+     let profilePicURL = $derived(page.data.user?.profilePicURL ?? "")
      let searchQuery: string = $derived("");
      let { state = "MAIN" } = $props()
      let searchBarState = $derived(state)
@@ -49,9 +50,9 @@
                <img alt="search" src={Search} class="invert size-5">
           </button>
           <!-- Profile -->
-          {#if page.data.user.profilePicURL}
+          {#if profilePicURL}
                <button class="bg-neutral-900 p-1 rounded-2xl" onclick={() => {goto(`/user/${page.data.user.name}`)}}>
-                    <img alt="profile" src={page.data.user.profilePicURL} class="rounded-2xl size-7">
+                    <img alt="profile" src={profilePicURL} class="rounded-2xl size-7">
                </button>
           {:else}
                <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto(`/login`)}}>

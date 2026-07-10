@@ -8,6 +8,7 @@
 
      // Icons
      import User from '$lib/assets/icons/profile.svg'
+    import { goto } from '$app/navigation';
      let { data } = $props()  
      
 </script>
@@ -19,7 +20,9 @@
      <!-- Profile -->
      <div class="flex items-center gap-5 p-4 rounded-2xl bg-black ">
           {#if page.data.user.profilePicURL}
-               <img alt="user" src={page.data.user.profilePicURL} class="rounded-full size-20">
+               <button onclick={() => {goto(`/settings/#account-settings`)}}>
+                    <img alt="user" src={page.data.user.profilePicURL} class="rounded-full size-20">
+               </button>
           {:else}
                <img alt="user" src={User} class="inverted size-10">
           {/if}

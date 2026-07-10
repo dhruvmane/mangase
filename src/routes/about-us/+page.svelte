@@ -28,7 +28,7 @@
 
 <main class="m-2 p-2">
      <Navbar />
-     <article class="p-2 rounded-2xl prose-p:mt-3 prose-a:underline prose-h2:text-5xl prose-h2:my-10 prose-p:indent-10">
+     <article class="p-2 rounded-2xl prose-p:mt-3 prose-a:underline prose-h2:text-5xl prose-h2:my-10">
           {@html parsedHTML}
      </article>
 </main>
