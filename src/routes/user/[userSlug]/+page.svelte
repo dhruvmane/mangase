@@ -4,19 +4,25 @@
      import Navbar from '$lib/components/Navbar.svelte';
      import { userPageConfig, switchDisplay } from '$lib/modules/globals/userPage.svelte.js';
 
+     import { page } from '$app/state';
+
      // Icons
      import User from '$lib/assets/icons/profile.svg'
-     let { data } = $props()
+     let { data } = $props()  
      
 </script>
 
 
-<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
+<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
      <Navbar />
      <div class="flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
      <!-- Profile -->
-     <div class="flex items-center gap-2 p-4 rounded-2xl bg-black ">
-          <img alt="user" src={User} class="invert size-10">
+     <div class="flex items-center gap-5 p-4 rounded-2xl bg-black ">
+          {#if page.data.user.profilePicURL}
+               <img alt="user" src={page.data.user.profilePicURL} class="rounded-full size-20">
+          {:else}
+               <img alt="user" src={User} class="inverted size-10">
+          {/if}
           <div>
                <h1>{data.userSlug}</h1>
           </div>
@@ -43,9 +49,7 @@
           </div>
           
           <div class="flex flex-col gap-1">
-               {#if userPageConfig._TOGGLED_DISPLAY === "MANGA_LIST"}
-                    
-               {/if}
+
           </div>
      </div>
      </div>

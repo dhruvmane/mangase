@@ -71,7 +71,7 @@
                </div>
           </div>
           <!-- Buttons -->
-          <div class="flex items-center gap-1 my-2 p-2 bg-neutral-950 rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl w-full">
+          <div class="flex items-center gap-1 my-2 p-2 bg-neutral-950 rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
                {#if !isBookmarked}
                     <button class="p-2 rounded-2xl bg-neutral-800 flex-1 min-w-0" onclick={() => {goto(`/manga/${_mangaData.mangaId}/chapter/1`)}}>Start Reading</button>
                     <button class="p-2 rounded-2xl bg-neutral-800 shrink-0" onclick={() => {isBookmarked = !isBookmarked}}>

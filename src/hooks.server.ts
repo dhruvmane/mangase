@@ -10,7 +10,7 @@ export const handle: Handle = async ({ event, resolve }) => {
           return resolve(event)
      }
 
-     const result = await db.select({userId: users.id, email: users.email, expiresAt: sessions.expiresAt, name: users.name})
+     const result = await db.select({userId: users.id, email: users.email, expiresAt: sessions.expiresAt, name: users.name, profilePicURL: users.profilePicURL})
           .from(sessions).innerJoin(users, eq(sessions.userId, users.id))
 
      // Delete Session once it expires.
@@ -20,7 +20,7 @@ export const handle: Handle = async ({ event, resolve }) => {
           return resolve(event)
      }
 
-     event.locals.user = {id: result[0].userId, email: result[0].email, name: result[0].name}
+     event.locals.user = {id: result[0].userId, email: result[0].email, name: result[0].name, profilePicURL: result[0].profilePicURL}
      
      // IMPORTANT 
      return resolve(event);

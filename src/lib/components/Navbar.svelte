@@ -4,7 +4,7 @@
      import Profile from '$lib/assets/icons/profile.svg'
      import Settings from '$lib/assets/icons/options.svg'
      import Down from '$lib/assets/icons/down.svg'
-     import Logo from '$lib/assets/favicon/favicon.svg'
+     import Logo from '$lib/assets/favicon/favicon.ico'
 
      import { page } from '$app/state'
 
@@ -18,7 +18,7 @@
 
 </script>
 
-<main class="flex m-auto w-full overflow-hidden bg-black md:max-w-sm rounded-2xl items-center h-[50px] mb-2 border-neutral-500 p-2">
+<main class="flex m-auto w-full overflow-hidden bg-black md:max-w-sm rounded-2xl items-center h-[50px] mb-2 lg:my-5 border-neutral-500 p-2">
      {#if searchBarState !== "SEARCH"}
      <div>
           <!-- Mangase Button -->
@@ -41,7 +41,7 @@
      {/if}
 
      
-     <div class="ml-auto">
+     <div class="ml-auto flex items-center gap-0.75">
           
           {#if searchBarState === "MAIN"}
           <!-- Search Button -->
@@ -49,9 +49,15 @@
                <img alt="search" src={Search} class="invert size-5">
           </button>
           <!-- Profile -->
-          <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto(`/user/${page.data.user.name}`)}}>
-               <img alt="profile" src={Profile} class="invert size-5">
-          </button>
+          {#if page.data.user.profilePicURL}
+               <button class="bg-neutral-900 p-1 rounded-2xl" onclick={() => {goto(`/user/${page.data.user.name}`)}}>
+                    <img alt="profile" src={page.data.user.profilePicURL} class="rounded-2xl size-7">
+               </button>
+          {:else}
+               <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto(`/login`)}}>
+                    <img alt="profile" src={Profile} class="invert size-5">
+               </button>
+          {/if}
           
           <!-- Settings -->
           <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto("/settings")}}>

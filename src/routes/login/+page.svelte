@@ -1,7 +1,10 @@
 <script>
-
+     import Navbar from "$lib/components/Navbar.svelte";
 </script>
 
+<div class="m-4">
+     <Navbar />
+</div>
 <div class="m-4 p-4 bg-black rounded-2xl">
      <form class="flex flex-col gap-2 my-12 text-neutral-400" method="POST">
           <label>

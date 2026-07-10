@@ -7,10 +7,12 @@
 
 </script>
 
-<main class="p-2 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
-    <Navbar />
-    <Notice/>
-    <Advert />
-    <Main />
-    <Footer />
+<main class="p-2 m-2 md:max-w-md lg:max-w-lg lg:m-auto">
+    <div>
+        <Navbar />
+        <Notice/>
+        <Advert />
+        <Main />
+        <Footer />
+    </div>
 </main>
