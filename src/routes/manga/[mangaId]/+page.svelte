@@ -70,6 +70,18 @@
                     <h2 class="">Description</h2>
                </div>
           </div>
+          
+          <!-- Reviews -->
+          <div class="p-4 my-2 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
+               <h2>Reviews</h2>
+               <div class="h-full rounded-2xl">
+                    <div class="flex gap-x-1 overflow-y-auto my-2 rounded">
+                         <div class="bg-neutral-50 aspect-2/1 w-full rounded shrink-0"></div>
+                    </div>
+               </div>
+          </div>
+
+
           <!-- Buttons -->
           <div class="flex items-center gap-1 my-2 p-2 bg-neutral-950 rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
                {#if !isBookmarked}
@@ -91,6 +103,7 @@
                </button>
           </div>
 
+
           <!-- Chapters -->
           <div class="my-2 p-4 rounded-2xl bg-black flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
                <div class="grid grid-cols-[75%_25%] items-center rounded-2xl py-2">
@@ -106,16 +119,7 @@
                </div>
           </div>
           
-          <!-- Reviews -->
-          <div class="p-4 my-2 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
-               <h2>Reviews</h2>
-               <div class="h-full rounded-2xl">
-                    <div class="flex gap-x-1 overflow-y-auto my-2 rounded">
-                         <div class="bg-neutral-50 aspect-4/1 w-full rounded shrink-0"></div>
-                         <div class="bg-neutral-50 aspect-4/1 w-full rounded shrink-0"></div>
-                    </div>
-               </div>
-          </div>
+
 
           <!-- More Like This -->
           <div class="p-4 my-2 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">

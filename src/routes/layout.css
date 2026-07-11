@@ -15,10 +15,6 @@ body {
      @apply bg-neutral-900 text-neutral-300
 }
 
-h1 {
-     @apply text-2xl
-}
-
 
 button, a {
      @apply hover:cursor-pointer hover:underline

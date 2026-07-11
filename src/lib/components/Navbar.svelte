@@ -31,11 +31,11 @@
      {/if}
      
      {#if searchBarState === "SEARCH"}
-     <div class="p-2 text-white flex gap-2">
+     <div class=" p-1 text-white flex gap-2">
           <input type="text" bind:value={searchQuery} class="w-full h-[20%] bg-neutral-950 rounded-2xl border-0 focus:ring-0 px-5">
           <!-- Search Button -->
           <button class="bg-neutral-900 p-2 rounded-2xl shrink-0" onclick={() => {searchMangaQuery(searchQuery)}}>
-               <img alt="search" src={Search} class="invert size-5">
+               <img alt="search" src={Search} class="invert size-5 shrink-0">
           </button>
      </div>
      

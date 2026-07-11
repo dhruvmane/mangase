@@ -4,12 +4,13 @@
 
      const links = [
           { label: 'About Us', href: '/about-us' },
+          { label: 'Donate', href: '/donate' },
      ];
 </script>
 
 <div class="border-4 my-2 border-black bg-black rounded-2xl p-2 flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
      <div class="">
-          <h1 class="flex items-center gap-2">Mangase —  <span class="text-[20px]">Links</span></h1>
+          <h1 class="flex items-center gap-2">Mangase</h1>
      </div>
      <menu class="px-5">
           {#each links as link}

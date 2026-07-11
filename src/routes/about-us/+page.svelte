@@ -2,7 +2,7 @@
      import { marked } from "marked";
      import DOMPurify from "dompurify";
      import { onMount } from "svelte";
-    import Navbar from "$lib/components/Navbar.svelte";
+     import Navbar from "$lib/components/Navbar.svelte";
      
      // ABOUT-US.md
      let aboutUs = "_ABOUT-US"

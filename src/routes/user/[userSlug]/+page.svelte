@@ -8,7 +8,7 @@
 
      // Icons
      import User from '$lib/assets/icons/profile.svg'
-    import { goto } from '$app/navigation';
+     import { goto } from '$app/navigation';
      let { data } = $props()  
      
 </script>
@@ -20,16 +20,34 @@
      <!-- Profile -->
      <div class="flex items-center gap-5 p-4 rounded-2xl bg-black ">
           {#if page.data.user.profilePicURL}
-               <button onclick={() => {goto(`/settings/#account-settings`)}}>
+               <button class="shrink-0" onclick={() => {goto(`/settings/#account-settings`)}}>
                     <img alt="user" src={page.data.user.profilePicURL} class="rounded-full size-20">
                </button>
           {:else}
-               <img alt="user" src={User} class="inverted size-10">
+               <img alt="user" src={User} class="inverted shrink-0 size-10">
           {/if}
           <div>
                <h1>{data.userSlug}</h1>
           </div>
      </div>
+     <!-- Description -->
+     {#if page.data.user.description}
+     <div class="p-4 bg-black rounded-2xl flex flex-col gap-2">
+          <!-- About Me -->
+          <div>
+               <h1>About Me</h1>
+               <p class="text-[12px]">
+                    This is a user description.
+                    This is a user description.
+                    This is a user description.
+                    This is a user description.
+                    This is a user description.
+                    This is a user description.
+                    This is a user description.
+               </p>
+          </div>
+     </div>
+     {/if}
 
      <!-- Your Manga List -->
      <div class="text-center items-center gap-2 px-4 py-3 rounded-2xl bg-black">

@@ -5,6 +5,9 @@
     import Main from "$lib/sections/Main.svelte";
     import Notice from "$lib/sections/Notice.svelte";
 
+    import { page } from "$app/state";
+
+
 </script>
 
 <main class="p-2 m-2 md:max-w-md lg:max-w-lg lg:m-auto">
@@ -12,7 +15,7 @@
         <Navbar />
         <Notice/>
         <Advert />
-        <Main />
+        <Main data={page.data} />
         <Footer />
     </div>
 </main>

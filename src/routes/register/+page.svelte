@@ -1,7 +1,9 @@
 <script lang=ts>
      import { goto } from "$app/navigation";
+    import Navbar from "$lib/components/Navbar.svelte";
      
      let name: string = $state("")
+     let date: string = $state("")
      let email: string = $state("");
      let password: string = $state("");
      let confirmPassword: string = $state("");
@@ -18,13 +20,19 @@
 
 </script>
 
-<div class="m-4 p-4 bg-black rounded-2xl">
+<div class="m-2 p-2">
+     <Navbar />
+</div>
+<div class="mx-4 p-4 bg-black rounded-2xl">
      <form class="flex flex-col gap-2 my-12 text-neutral-400" method="POST">
           <label class="capitalize">
                enter username
                <input type="text" name="name" bind:value={name} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
           </label>
-
+          <label class="capitalize">
+               enter date of birth
+               <input type="date" name="date" bind:value={date} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
+          </label>
           <label class="capitalize">
                enter email
                <input type="email" name="email" bind:value={email} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">

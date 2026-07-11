@@ -12,7 +12,7 @@
 
      let selectedFile = null
      let profilePicURL: string | undefined = $state(page.data.user?.profilePicURL ?? "")
-     let profilePicKey: string | undefined = $state("")
+     let profilePicKey: string | undefined = $state(page.data.user?.profilePicKey ?? "")
      let profilePicInputForm: any;
 
      const {startUpload} = createUploadThing("imageUploader", {
@@ -45,6 +45,7 @@
 
 
 </script>
+
 
 <main class="p-2 m-2 gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
      <div>
@@ -163,6 +164,16 @@
                                    </div>
 
                               </label>
+
+                              <label class="text-[13px] text-neutral-600">
+                                   your description
+                                   <div class="flex flex-col items-center gap-1">
+                                        <textarea placeholder={page.data.user.description} class="flex-1 bg-none w-full bg-neutral-950 focus:ring-0 border-0"></textarea>
+                                        <button class="bg-neutral-950 p-2.5 rounded text-[13px] w-full my-2">Change</button>
+                                   </div>
+
+                              </label>
+
                               <button class="bg-neutral-950 p-2 rounded text-[13px] my-2">Change Password</button>
                          </div>
                     
