@@ -6,7 +6,6 @@
 	import faviconico from '$lib/assets/favicon/favicon.ico';
 	import appleTouchIcon from '$lib/assets/favicon/apple-touch-icon.png';
 	import webManifest from '$lib/assets/favicon/site.webmanifest';
-    import Footer from '$lib/sections/Footer.svelte';
 
 
 	let { children } = $props();
@@ -19,6 +18,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
 	<meta name="apple-mobile-web-app-title" content="Mangase" />
 	<link rel="manifest" href={webManifest} />
+	<title>Mangase</title>
 </svelte:head>
 
 {@render children()}

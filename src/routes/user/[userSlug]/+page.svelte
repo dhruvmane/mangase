@@ -13,6 +13,9 @@
      
 </script>
 
+<svelte:head>
+     <title>{page.params.userSlug} — Mangase</title>
+</svelte:head>
 
 <main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto h-screen">
      <Navbar />
@@ -27,7 +30,7 @@
                <img alt="user" src={User} class="inverted shrink-0 size-10">
           {/if}
           <div>
-               <h1>{data.userSlug}</h1>
+               <h1>{page.params.userSlug}</h1>
           </div>
      </div>
      <!-- Description -->

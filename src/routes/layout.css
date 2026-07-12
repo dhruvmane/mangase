@@ -17,7 +17,7 @@ body {
 
 
 button, a {
-     @apply hover:cursor-pointer hover:underline
+     @apply hover:cursor-pointer
 }
 
 

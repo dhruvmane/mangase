@@ -19,6 +19,9 @@
 
 
 </script>
+<svelte:head>
+     <title>Register — Mangase</title>
+</svelte:head>
 
 <div class="m-2 p-2">
      <Navbar />

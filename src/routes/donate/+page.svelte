@@ -3,6 +3,10 @@
 
 </script>
 
+<svelte:head>
+    <title>Donate — Mangase</title>
+</svelte:head>
+
 <div class="m-2 p-2">
      <Navbar />
 </div>

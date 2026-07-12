@@ -45,6 +45,9 @@
 
 </script>
 
+<svelte:head>
+     <title>Settings — Mangase</title>
+</svelte:head>
 
 <main class="p-2 m-2 gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
      <div>

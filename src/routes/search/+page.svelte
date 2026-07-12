@@ -11,6 +11,9 @@
 
 </script>
 
+<svelte:head>
+     <title>Search — Mangase</title>
+</svelte:head>
 
 <main class="p-2 m-2 h-screen flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
      <Navbar state="SEARCH"/>
