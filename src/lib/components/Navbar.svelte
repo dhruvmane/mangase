@@ -31,14 +31,19 @@
      {/if}
      
      {#if searchBarState === "SEARCH"}
-     <div class=" p-1 text-white flex gap-2">
-          <input type="text" bind:value={searchQuery} onkeydown={(e) => { if(e.key === "Enter") {searchMangaQuery(searchQuery)} }} class="w-full h-[20%] bg-neutral-950 rounded-2xl border-0 focus:ring-0 px-5">
-          <!-- Search Button -->
-          <button class="bg-neutral-900 p-2 rounded-2xl shrink-0" onclick={() => {searchMangaQuery(searchQuery)}}>
-               <img alt="search" src={Search} class="invert size-5 shrink-0">
-          </button>
+     <div class=" text-white flex gap-2 w-full">
+          <input type="text" bind:value={searchQuery} onkeydown={(e) => { if(e.key === "Enter") {searchMangaQuery(searchQuery)} }} class="w-full flex-1 shrink-0 h-[20%] bg-neutral-950 rounded-2xl border-0 focus:ring-0 px-5">
+          <div class="flex gap-0.5 ml-auto ">
+               <!-- Search Button -->
+               <button class="bg-neutral-900 p-2 rounded-2xl shrink-0" onclick={() => {searchMangaQuery(searchQuery)}}>
+                    <img alt="search" src={Search} class="invert size-5 shrink-0">
+               </button>
+               <!-- DOWN -->
+               <button class="bg-neutral-900 p-2 rounded-2xl shrink-0" onclick={() => {searchBarState = "MAIN"}}>
+                    <img alt="search" src={Down} class="invert size-5">
+               </button>
+          </div>
      </div>
-     
      {/if}
 
      
@@ -65,14 +70,6 @@
                <img alt="setting" src={Settings} class="invert size-5">
           </button>
           {/if}
-
-          {#if searchBarState === "SEARCH"}
-               <!-- DOWN -->
-               <button class="bg-neutral-900 p-2 rounded-2xl shrink-0" onclick={() => {searchBarState = "MAIN"}}>
-                    <img alt="search" src={Down} class="invert size-5">
-               </button>
-          {/if}
-          
           
      </div>
 </main>
