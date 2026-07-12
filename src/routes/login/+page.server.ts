@@ -34,7 +34,6 @@ export const actions: Actions = {
                return fail(400, { error: 'User Not Found.' });
           }
 
-          console.log(intendedUser)
 
           // Check if the password is valid.
           const passwordIsValid = await bcrypt.compare(plainPassword, intendedUser[0].password_hash)

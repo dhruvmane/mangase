@@ -19,7 +19,7 @@
 
 </script>
 
-<main class="flex m-auto w-full overflow-hidden bg-black md:max-w-sm rounded-2xl items-center h-[50px] mb-2 lg:my-5 border-neutral-500 p-2">
+<main class="flex m-auto w-full overflow-hidden bg-black md:max-w-sm rounded-2xl items-center h-[50px] my-2 lg:my-5 border-neutral-500 p-2">
      {#if searchBarState !== "SEARCH"}
      <div>
           <!-- Mangase Button -->
@@ -32,7 +32,7 @@
      
      {#if searchBarState === "SEARCH"}
      <div class=" p-1 text-white flex gap-2">
-          <input type="text" bind:value={searchQuery} class="w-full h-[20%] bg-neutral-950 rounded-2xl border-0 focus:ring-0 px-5">
+          <input type="text" bind:value={searchQuery} onkeydown={(e) => { if(e.key === "Enter") {searchMangaQuery(searchQuery)} }} class="w-full h-[20%] bg-neutral-950 rounded-2xl border-0 focus:ring-0 px-5">
           <!-- Search Button -->
           <button class="bg-neutral-900 p-2 rounded-2xl shrink-0" onclick={() => {searchMangaQuery(searchQuery)}}>
                <img alt="search" src={Search} class="invert size-5 shrink-0">

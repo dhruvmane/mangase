@@ -1,6 +1,6 @@
 <script>
      import { goto } from "$app/navigation";
-     import Logo from '$lib/assets/favicon/favicon.svg'
+     import Logo from '$lib/assets/favicon/favicon.ico'
 </script>
 
 

@@ -16,6 +16,5 @@
         <Notice/>
         <Advert />
         <Main data={page.data} />
-        <Footer />
     </div>
 </main>

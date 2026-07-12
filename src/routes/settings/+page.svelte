@@ -43,7 +43,6 @@
           }
      }    
 
-
 </script>
 
 
@@ -101,6 +100,14 @@
                          <select class="appearance-none focus:ring-0 bg-neutral-950">
                               <option>Topdown</option>
                               <option>Side Scrolling</option>
+                         </select>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                         <h2>Quality / Data Usage</h2>
+                         <p class="text-[12px] text-gray-600">Change how much data you can spare.</p>
+                         <select class="appearance-none focus:ring-0 bg-neutral-950">
+                              <option>Data Saver</option>
+                              <option>Highest Quality</option>
                          </select>
                     </div>
 

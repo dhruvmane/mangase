@@ -55,14 +55,17 @@ async function getMangaCovers(mangaId: string, coverFileName: string) {
 }
 
 
-async function searchMangaQuery(q: string) {
+async function searchMangaQuery(q: string) { 
+
+     if (q === "") return
+     
      // Log Search Activity
      console.log(`USER_ACTION: Searched for '${q}' in /search.`)
 
      const response = await fetch(`/api/search?${new URLSearchParams({ q })}`)
      const data = await response.json()
 
-     if (AppInstance._USER_CONFIG?._SEARCH) {
+     if (AppInstance._USER_CONFIG && AppInstance._USER_CONFIG?._SEARCH) {
           AppInstance._USER_CONFIG._SEARCH = data.data
      }
 
