@@ -34,6 +34,17 @@ export const users = pgTable("users", {
 	userConfig: jsonb("user_config").notNull().default(userBaseConfig)
 })
 
+// Store Creators [WRITERS/ARTISTS/PUBLISHERS/TRANSLATORS]
+export const creatorContributionEnum = pgEnum("creator_contribution", [
+	"WRITER",
+	"ARTIST",
+	"ARTIST_&_WRITER",
+	"PUBLISHER",
+	"TRANSLATOR"
+])
+
+export const creators = pgTable("creators", {})
+
 // Database Table to store Session Tokens
 export const sessions = pgTable("sessions", {
 	id: text("id").primaryKey(),
@@ -65,14 +76,27 @@ export const mangaStatusEnum = pgEnum("manga_status", [
 
 // Mangas
 export const mangas = pgTable("mangas", {
-	id: uuid("id").primaryKey().notNull().unique(),
-	authorId: uuid("user_id").notNull(),
-	publisherId: uuid("publisher_id").notNull(),
-	title: text("title").notNull(),
-	altTitles: jsonb("altTitles"),
-	createdAt: timestamp("created_at").defaultNow().notNull(),
-	updatedAt: timestamp("updated_at").defaultNow().notNull(),
-	externalSources: jsonb("external_sources")
+	id: uuid("id").primaryKey().notNull().unique(),											// Unique Manga ID
+	mangaSlug: text("manga_slug").notNull().unique(),											// Unique Text Slug
+	authorDetails: jsonb("author_details"),													// List of Authors who worked on it.
+	publisherDetails: jsonb("publisher_details"),											// List of Publishers who published the comic.
+	title: text("title").notNull(),														// English Title
+	altTitles: jsonb("altTitles"),														// List of all alternate titles.
+	createdAt: timestamp("created_at").defaultNow().notNull(),									// Date of First Publishing of Manga
+	updatedAt: timestamp("updated_at").defaultNow().notNull(),									// Date of Latest Chapter Upload
+	mangaStatus: mangaStatusEnum("manga_status").notNull().default("ONGOING"),						// MANGA STATUS — ONGOING/CANCELLED ETC
+
+})
+
+// Manga Chapters
+export const chapters = pgTable("chapters", {
+	id: uuid("id").primaryKey().notNull().unique(),											// Chapter ID
+	mangaId: uuid("id").notNull().references(() => mangas.id, {onDelete: "cascade"}),				// Store Manga ID (for referencing)
+	chapterTitle: text("chapter_title"),													// Store Chapter Number
+	chapterNumber: numeric("chapter_number").notNull(),										// Store Chapter Number
+	chapterSource: jsonb("chapter_source").default({data_saver:{}, highest_quality:{}}),				// Store Scraped Chapter Links
+	chapterLanguage: text("chapter_language"),												// Store Chapter Language
+	publisherInfo: jsonb("publisher_info"),													// Store Information about Chapter Source (Who Provided Chapters?)
 })
 
 // 
@@ -102,13 +126,14 @@ export const reviews = pgTable("reviews", {
 	reviewHeading: text("review_heading").notNull(),
 	reviewDescription: text("review_description").notNull()
 })
-// 
+
 // Chapter Comments
 export const comments: any = pgTable("comments", {
 	createdAt: timestamp("created_at").defaultNow(),
 	lastEditedAt: timestamp("last_edited_at").defaultNow(),
 	id: uuid("id").notNull().primaryKey(),
-	mangaId: uuid("manga_id").notNull().references(() => mangas.id, {onDelete:"cascade"}),
+	mangaId: uuid("manga_id").references(() => mangas.id, {onDelete:"cascade"}),
+	chapterId: uuid("chapter_id").references(() => chapters.id, {onDelete:"cascade"}),
 	userId: uuid("critic_id").notNull().references(() => users.id, {onDelete: "cascade"}),
 	score: numeric("score").notNull(),
 	comment: text("review_description").notNull(),
