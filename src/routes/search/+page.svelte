@@ -1,10 +1,8 @@
 <script lang=ts>
      import Navbar from "$lib/components/Navbar.svelte";
-     import { AppInstance } from "$lib/modules/globals.svelte";
 
      // Icons
      import Filter from "$lib/assets/icons/filter.svg"
-     let searchQueryResults
 
      let filterTabOpen = $state(false)
      let hasSearched = $state(true)
@@ -33,16 +31,16 @@
           </div>
 
           {#if filterTabOpen}
-               <!-- FILTERS -->
+               FILTERS 
                <div class="min-h-[100px] p-2 bg-neutral-900 rounded my-2">
-                    <!-- Sort By -->
+                     Sort By
                     <h1>Genre</h1>
                     <h1>Tags</h1>
                     <h1>Status</h1>
                     <h1>Popularity</h1>
                     <h1>Reviews</h1>
                </div>
-               <!-- APPLY FILTERS -->
+               APPLY FILTERS 
                <div class="my-2 flex gap-1">
                     <button class="p-2 flex-1 bg-neutral-900 rounded">Apply Filters</button>
                     <button class="p-2 flex-1 bg-neutral-900 rounded">Clear Filters</button>
@@ -57,7 +55,7 @@
                <h1 class="text-[12px]">Search Results for</h1>
                <h1 class="text-2xl">Chainsaw Man</h1>
 
-               <!-- Manga Results -->
+               
                <div class="my-2 w-full mt-5">
                     <div class="h-[90px] rounded bg-neutral-900 my-1"></div>
                </div>
