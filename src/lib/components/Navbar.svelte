@@ -19,7 +19,7 @@
 
 </script>
 
-<main class="flex m-auto w-full overflow-hidden bg-black md:max-w-sm rounded-2xl items-center h-[50px] my-2 lg:my-5 border-neutral-500 p-2">
+<main class="flex m-auto shrink-0 w-full overflow-hidden bg-black md:max-w-sm rounded-2xl items-center h-[50px] my-2 lg:my-5 border-neutral-500 p-2">
      {#if searchBarState !== "SEARCH"}
      <div>
           <!-- Mangase Button -->

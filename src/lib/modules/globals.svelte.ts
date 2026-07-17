@@ -7,6 +7,7 @@ interface IAppInstance {
           showNotice: boolean
      },
      _USER_CONFIG?: {
+          _SEARCH_QUERY?: string,
           _SEARCH?: searchData[]
      }
 }
@@ -75,7 +76,11 @@ interface IPublisher {
 }
 
 let AppInstance = $state({
-     _TASKS: {}
+     _TASKS: {},
+     _USER_CONFIG: {
+          _SEARCH_QUERY: "",
+          _SEARCH: []
+     }
 })
 
 export { AppInstance }

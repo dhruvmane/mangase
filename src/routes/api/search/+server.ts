@@ -17,5 +17,6 @@ export const GET: RequestHandler = async ({ url }) => {
      // MANGADEX
      const response = await fetch(`${API_URI}/manga?${params}`)
      const data = await response.json()
+
      return json(data);
 };

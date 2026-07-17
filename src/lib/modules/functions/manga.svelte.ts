@@ -59,6 +59,11 @@ async function searchMangaQuery(q: string) {
 
      if (q === "") return
      
+     if (AppInstance._USER_CONFIG) {
+          AppInstance._USER_CONFIG._SEARCH_QUERY = q
+     }
+     
+     
      // Log Search Activity
      console.log(`USER_ACTION: Searched for '${q}' in /search.`)
 

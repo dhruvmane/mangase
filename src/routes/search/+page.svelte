@@ -3,14 +3,28 @@
 
      // Icons
      import Filter from "$lib/assets/icons/filter.svg"
+     import { AppInstance } from "$lib/modules/globals.svelte";
+    import { goto } from "$app/navigation";
 
      let filterTabOpen = $state(false)
-     let hasSearched = $state(true)
+     let hasSearched = $state(false)
+     let searchResults = $derived(AppInstance._USER_CONFIG._SEARCH)
+     let searchQuery = $derived(AppInstance._USER_CONFIG._SEARCH_QUERY)
+
+     $effect(() => {
+          if (searchResults[0]) {
+               hasSearched = true
+          }
+     })
 
 </script>
 
 <svelte:head>
-     <title>Search — Mangase</title>
+     {#if searchQuery !== ""}
+          <title>{searchQuery} — Mangase</title>
+     {:else}     
+          <title>Search — Mangase</title>
+     {/if}
 </svelte:head>
 
 <main class="p-2 m-2 h-screen flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
@@ -31,7 +45,7 @@
           </div>
 
           {#if filterTabOpen}
-               FILTERS 
+               <!-- FILTERS  -->
                <div class="min-h-[100px] p-2 bg-neutral-900 rounded my-2">
                      Sort By
                     <h1>Genre</h1>
@@ -40,7 +54,7 @@
                     <h1>Popularity</h1>
                     <h1>Reviews</h1>
                </div>
-               APPLY FILTERS 
+               <!-- APPLY FILTERS  -->
                <div class="my-2 flex gap-1">
                     <button class="p-2 flex-1 bg-neutral-900 rounded">Apply Filters</button>
                     <button class="p-2 flex-1 bg-neutral-900 rounded">Clear Filters</button>
@@ -53,11 +67,24 @@
      {#if hasSearched}
           <div class="p-4 bg-black rounded-2xl">
                <h1 class="text-[12px]">Search Results for</h1>
-               <h1 class="text-2xl">Chainsaw Man</h1>
+               <h1 class="text-2xl">{searchQuery}</h1>
 
                
                <div class="my-2 w-full mt-5">
-                    <div class="h-[90px] rounded bg-neutral-900 my-1"></div>
+               </div>
+               
+               <div class="my-2 w-full mt-5">
+                    {#each searchResults as result}
+                         <button class="p-2 w-full text-left h-[90px] rounded bg-neutral-900 my-1" onclick={() => {goto(`/manga/${result.id}`)}}>
+                              <!-- Title -->
+                              {#if result.attributes.title['ja-ro']}
+                                   <h1>{result.attributes.title['ja-ro']}</h1>
+                              {:else if result.attributes.title['en']}
+                                   <h1>{result.attributes.title['en']}</h1>
+                              {/if}
+
+                         </button>
+                    {/each}
                </div>
           </div>
      {:else}
@@ -65,13 +92,4 @@
                <h1>Most Searched</h1>
           </div>
      {/if}
-     
-
-     <!-- {#if searchQueryResults}
-          {#each searchQueryResults as result}
-          <div class="p-2 bg-neutral-950 rounded-2xl">
-               <h1>{result.attributes.title}</h1>
-          </div>
-          {/each}
-     {/if} -->
 </main>

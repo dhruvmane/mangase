@@ -85,7 +85,7 @@ export const mangas = pgTable("mangas", {
 	createdAt: timestamp("created_at").defaultNow().notNull(),									// Date of First Publishing of Manga
 	updatedAt: timestamp("updated_at").defaultNow().notNull(),									// Date of Latest Chapter Upload
 	mangaStatus: mangaStatusEnum("manga_status").notNull().default("ONGOING"),						// MANGA STATUS — ONGOING/CANCELLED ETC
-
+	mangaDexMangaId: text("manga_dex_id")						
 })
 
 // Manga Chapters
