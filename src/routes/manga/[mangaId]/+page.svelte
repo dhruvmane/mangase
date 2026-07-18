@@ -23,10 +23,11 @@
 
      onMount(() => {
           _mangaData = data.mangaData.data;
-          isLoaded = true
           dateStringBeautify(_mangaData.attributes.createdAt)
           coverArtSrc = `https://uploads.mangadex.org/covers/${data.mangaId}/${data.coverFileName}`
-          // console.log(coverArtSrc)
+
+
+          isLoaded = true
      })
 
      function dateStringBeautify(date: string): string {
@@ -38,6 +39,20 @@
           const formatted = `${parsedDate}/${parsedMonthNumber}/${parsedYear}`
           return formatted
      }
+
+     function getTitle(dict: Record<string, string>): string {
+          let keys = Object.keys(dict)
+          let title: string;
+          let key: string = '';
+          keys.forEach((lang: string) => {
+               if (lang === 'en' || lang === 'ja-ro') {
+                    key = lang
+               }
+          })
+          title = dict[key]
+          return title                  
+     }
+     
 
 </script>
 
@@ -52,7 +67,7 @@
      <div class="">
           
           <!-- Manga Cover Art -->
-          <div class="m-auto my-2 mb-4 w-[270px]">
+          <div class="m-auto my-2 mb-4 w-[310px]">
                <button class="h-full w-full" aria-label="Cover" onclick={() => {goto(`/manga/${_mangaData.mangaId}/cover`)}}>
                     <img src={coverArtSrc} alt="cover" class="h-full w-full object-fit">
                </button>
@@ -60,8 +75,8 @@
           
           <!-- Manga Bookmarkrmation -->
           <div class="bg-neutral-950 p-3 rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
-               <h1 class="text-2xl text-center capitalize">{_mangaData.attributes.title['ja-ro']}</h1>
-               <h2 class="text-center">by Tatsuki Fujimoto</h2>
+               <h1 class="text-2xl text-center capitalize">{getTitle(_mangaData.attributes.title)}</h1>
+               <h2 class="text-center">by {data.authorDetails.attributes.name}</h2>
           </div>
           
           
@@ -100,7 +115,7 @@
           <!-- Buttons -->
           <div class="flex items-center gap-1 my-2 p-2 bg-neutral-950 rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
                {#if !isBookmarked}
-               <button class="p-2 rounded-2xl bg-neutral-800 flex-1 min-w-0" onclick={() => {goto(`/manga/${_mangaData.mangaId}/chapter/1`)}}>Start Reading</button>
+               <button class="p-2 rounded-2xl bg-neutral-800 flex-1 min-w-0" onclick={() => {goto(`/manga/${data.mangaId}/chapter/${data.chapterDetails.id}`)}}>Start Reading</button>
                <button class="p-2 rounded-2xl bg-neutral-800 shrink-0" onclick={() => {isBookmarked = !isBookmarked}}>
                     <img alt="share" src={BookmarkUnadded} class="size-6 invert" title="Change Language">
                </button>
@@ -130,7 +145,16 @@
                </div>
                
                <div class="flex flex-col gap-1">
-                    <button class="p-2 grid grid-cols-[15%_60%_25%] items-center rounded bg-neutral-900" aria-label="chapter" onclick={() => {goto(`/manga/${_mangaData.mangaId}/chapter/1`)}}>Ch. 1</button>
+                    {#each data.chapterDetails as chapter}
+                         <button class="p-2 grid grid-cols-[20%_80%] items-center rounded bg-neutral-900" aria-label="chapter" onclick={() => {goto(`/manga/${data.mangaId}/chapter/${chapter.id}`)}}>
+                              <h1 class="mr-auto">Ch. {chapter.attributes.chapter}</h1>
+                              {#if chapter.attributes.title}
+                                   <h1 class="ml-auto">{chapter.attributes.title}</h1>
+                              {:else}
+                                   <h1 class="ml-auto">-</h1>
+                              {/if}
+                         </button>
+                    {/each}
                </div>
           </div>
           

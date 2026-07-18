@@ -1,4 +1,5 @@
 interface IAppInstance {
+     _TASKS: {},
      _NOTIFICATIONS?: INotification[]
      _ACTIVE_PROFILE?: IProfile
      _AVAILABLE_PROFILES?: IProfile[],
@@ -18,9 +19,12 @@ interface searchData {
      type: string,
      attributes: {
           title: {
-               'ja-ro': string
+               'ja-ro': string,
+               'en': string
           }
-     }
+     },
+     coverString: string | null,
+     authorDetails: any
 }
 
 interface INotification {
@@ -75,7 +79,7 @@ interface IPublisher {
      mangas?: IManga[]
 }
 
-let AppInstance = $state({
+let AppInstance = $state<IAppInstance>({
      _TASKS: {},
      _USER_CONFIG: {
           _SEARCH_QUERY: "",
@@ -84,4 +88,4 @@ let AppInstance = $state({
 })
 
 export { AppInstance }
-export { INotificationType, type INotification }
+export { INotificationType, type INotification, type searchData }

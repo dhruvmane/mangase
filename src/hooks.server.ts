@@ -20,7 +20,7 @@ export const handle: Handle = async ({ event, resolve }) => {
           return resolve(event)
      }
 
-     event.locals.user = {id: result[0].userId, email: result[0].email, name: result[0].name, profilePicURL: result[0].profilePicURL}
+     event.locals.user = {id: result[0].userId, email: result[0].email, name: result[0].name, profilePicURL: result[0].profilePicURL, description: ''}
      
      // IMPORTANT 
      return resolve(event);

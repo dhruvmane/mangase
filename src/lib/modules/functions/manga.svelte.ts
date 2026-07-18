@@ -1,6 +1,6 @@
-import { AppInstance } from "../globals.svelte";
+import { AppInstance, type searchData } from "../globals.svelte";
 
-const baseUrl = 'https://api.mangadex.org';
+const API_URL = 'https://api.mangadex.org';
 
 interface ISearchParams {
      title?: string,
@@ -10,70 +10,87 @@ interface ISearchParams {
      filters?: {}
 }
 
-async function getManga(searchParams: ISearchParams) {
-     const query: Record<string, string> = {};
+export enum chapterDataEnum {
+     'data',
+     'data-saver'
+}
 
-     if (searchParams.title) query.title = searchParams.title;
+interface IChapterObject {
+     page: number,
+     url: string
+}
+
+async function getChaptersSource (chapterId: string, type: chapterDataEnum) {
+     const response = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`)
+     const data = await response.json()
+     let list: IChapterObject[] = []
+
+     let pageCount = 0;
      
-     if (searchParams.includedTags?.length) {
-          query.includedTags = searchParams.includedTags.join(',');
-     }
+     data.chapter.data.forEach((chapter: any) => {
+          const _url = `${data.baseUrl}/${chapterDataEnum[type]}/${data.chapter.hash}/${chapter}` as string
+          const chapter_object = {
+               page: pageCount++,
+               url: _url
+          }
+          list.push(chapter_object)
+     })
+     return list
+}
 
-     if (searchParams.excludedTags?.length) {
-          query.excludedTags = searchParams.excludedTags.join(',');
+async function getMangaCoverArt(manga: any) {
+     let coverData: any;
+     if (manga.relationships) {
+          coverData = manga.relationships.find((relation: any) => relation.type === "cover_art")
      }
+     const fileName = coverData.attributes.fileName
+     return `https://uploads.mangadex.org/covers/${manga.id}/${fileName}` as string
+}
 
-     if (searchParams.finalOrderQuery) {
-          query.finalOrderQuery = JSON.stringify(searchParams.finalOrderQuery);
+async function getAuthor(manga: any) {
+     let authorData;
+     if (manga.relationships) {
+          authorData = manga.relationships.find((relation: any) => relation.type === "author")
      }
-     
-     if (searchParams.filters) {
-          query.filters = JSON.stringify(searchParams.filters);
-     }
+     return authorData
+}
 
-     const params = new URLSearchParams(query)
-
-     const response = await fetch(`${baseUrl}/manga?${params}`, {
-          method: 'GET'
-     })     
-          
-     const data = await response.json();
+export async function getManga(mangaId: string) {
+     const response = await fetch(`${API_URL}/manga/${mangaId}`)
+     const data = await response.json()
      return data
 }
 
-async function getMangaCovers(mangaId: string, coverFileName: string) {
-
-     let routerURL = `https://api.mangadex.org`
-     // Get List of Covers
-     const coversList = await (await fetch(`${routerURL}?manga[]=${mangaId}`)).json()
-     console.log(coversList);
-     
-     // Get Main Cover Data:
-     const response = await fetch(`https://uploads.mangadex.org/covers/${mangaId}/${coverFileName}`, {
-          method: "GET"
+export function getTitle(dict: Record<string, string>): string {
+     let keys = Object.keys(dict)
+     let title: string;
+     let key: string = '';
+     keys.forEach((lang: string) => {
+          if (lang === 'en' || lang === 'ja-ro') {
+               key = lang
+          }
      })
+     title = dict[key]
+     return title                  
 }
 
-
 async function searchMangaQuery(q: string) { 
-
      if (q === "") return
-     
      if (AppInstance._USER_CONFIG) {
           AppInstance._USER_CONFIG._SEARCH_QUERY = q
      }
-     
-     
      // Log Search Activity
      console.log(`USER_ACTION: Searched for '${q}' in /search.`)
-
      const response = await fetch(`/api/search?${new URLSearchParams({ q })}`)
      const data = await response.json()
-
      if (AppInstance._USER_CONFIG && AppInstance._USER_CONFIG?._SEARCH) {
           AppInstance._USER_CONFIG._SEARCH = data.data
+          AppInstance._USER_CONFIG._SEARCH?.forEach(async (result: searchData) => {
+               result.coverString = await getMangaCoverArt(result)
+               result.authorDetails = await getAuthor(result)
+          })
      }
-
 }
 
 export { searchMangaQuery }
+export { getMangaCoverArt, getAuthor, getChaptersSource }

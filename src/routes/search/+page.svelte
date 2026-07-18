@@ -4,18 +4,20 @@
      // Icons
      import Filter from "$lib/assets/icons/filter.svg"
      import { AppInstance } from "$lib/modules/globals.svelte";
-    import { goto } from "$app/navigation";
+     import { goto } from "$app/navigation";
+     import { getMangaCoverArt, getTitle } from "$lib/modules/functions/manga.svelte";
 
      let filterTabOpen = $state(false)
      let hasSearched = $state(false)
-     let searchResults = $derived(AppInstance._USER_CONFIG._SEARCH)
-     let searchQuery = $derived(AppInstance._USER_CONFIG._SEARCH_QUERY)
+     let searchResults = $derived(AppInstance._USER_CONFIG?._SEARCH)
+     let searchQuery = $derived(AppInstance._USER_CONFIG?._SEARCH_QUERY)
 
      $effect(() => {
-          if (searchResults[0]) {
+          if (searchQuery) {
                hasSearched = true
           }
      })
+
 
 </script>
 
@@ -73,15 +75,19 @@
                <div class="my-2 w-full mt-5">
                </div>
                
-               <div class="my-2 w-full mt-5">
+               <div class="w-full mt-5 flex flex-col">
                     {#each searchResults as result}
-                         <button class="p-2 w-full text-left h-[90px] rounded bg-neutral-900 my-1" onclick={() => {goto(`/manga/${result.id}`)}}>
+                         <button class="w-full p-1 text-left rounded grid grid-cols-[30%_60%_10%] gap-2 bg-neutral-900 my-1" onclick={() => {goto(`/manga/${result.id}`)}}>
+                              
+                              <!-- Cover Art -->
+                              <div class="shrink-0 items-start">
+                                   <img src={result.coverString} alt="coverart" class="w-full object-cover">
+                              </div>
+
                               <!-- Title -->
-                              {#if result.attributes.title['ja-ro']}
-                                   <h1>{result.attributes.title['ja-ro']}</h1>
-                              {:else if result.attributes.title['en']}
-                                   <h1>{result.attributes.title['en']}</h1>
-                              {/if}
+                              <div class="p-2 overflow-hidden">
+                                   <h1 class="h-[100px] overflow-hidden">{getTitle(result.attributes.title)}</h1>
+                              </div>
 
                          </button>
                     {/each}

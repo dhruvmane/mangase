@@ -6,12 +6,17 @@
      import Home from '$lib/assets/icons/home.svg'
      import NextChapter from '$lib/assets/icons/next-chapter.svg'
      import { goto } from '$app/navigation';
-    import Comments from '$lib/components/Comments.svelte';
+     import Comments from '$lib/components/Comments.svelte';
+     import { getTitle } from '$lib/modules/functions/manga.svelte.js';
+     import { onMount } from 'svelte';
 
-     let {data} = $props()
-     let nextChapter = (parseInt(data.chapter) + 1).toString()
-
+     let { data } = $props()
+     let currentChapter = parseInt(data.chapterData.chapter)
      // $inspect(data)
+     
+     const _mangaTitle = getTitle(data.mangaData.data.attributes.title)
+     const _mangaId = data.mangaId
+
 </script>
 
 <main class="m-2 p-2">
@@ -21,7 +26,7 @@
      <!-- Manga Info -->
      <div class="mb-4 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl  m-auto w-full">
           <div class="flex">
-               <button class="text-3xl m-5 mb-2 bg-neutral-900 w-full p-4 rounded-2xl" onclick={() => {goto(`/manga/${data.mangaId}`)}}>Chainsaw Man</button>
+               <button class="text-3xl m-5 mb-2 bg-neutral-900 w-full p-4 rounded-2xl" onclick={() => {goto(`/manga/${_mangaId}`)}}>{_mangaTitle}</button>
           </div>
           <div class="p-4 flex flex-col gap-2">
                <div class="flex gap-1">
@@ -39,19 +44,21 @@
                <select class="bg-black rounded flex-1">
                     <option>Scanlation Group</option>
                </select>
+               <!-- Data Mode -->
+               <select class="bg-black rounded flex-1">
+                    <option>Fast Loading</option>
+                    <option>High Quality</option>
+               </select>
           </div>
      </div>
 
      <!-- Show Manga -->
      <div class="p-0.5 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl  m-auto w-full">
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
-          <div class=" m-auto aspect-3/4 w-full shrink-0 bg-neutral-50"></div>
+          {#each data.chapterData as page}
+               <div class="m-auto shrink-0">
+                    <img src={page.url} alt={`Page ${page.page}`}>
+               </div>
+          {/each}
      </div>
 
      <!-- HOME | Next Chapter -->
@@ -60,7 +67,7 @@
                <img alt="home" src={Home} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Go to Home</h2>
           </button>
-          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-950" onclick={() => {goto(`/manga/${data.mangaId}/chapter/${nextChapter}`)}}>
+          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-950" onclick={() => {goto(`/manga/${_mangaId}/chapter/${nextChapter}`)}}>
                <img alt="home" src={NextChapter} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Next Chapter</h2>
           </button>

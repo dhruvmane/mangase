@@ -10,9 +10,12 @@ export const GET: RequestHandler = async ({ url }) => {
      
      let title = url.searchParams.get("q") ?? ""
 
+     const includes = ['author', 'artist', 'cover_art']
      let params = new URLSearchParams({
-          title: title
+          title: title,
      })
+
+     includes.forEach(item => params.append('includes[]', item))
 
      // MANGADEX
      const response = await fetch(`${API_URI}/manga?${params}`)
