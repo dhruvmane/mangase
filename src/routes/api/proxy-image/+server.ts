@@ -22,7 +22,10 @@ export const GET: RequestHandler = async ({ url, fetch }) => {
 
   const mdResponse = await fetch(imageUrl, {
     referrer: 'https://mangadex.org/',
-    referrerPolicy: 'strict-origin-when-cross-origin'
+    referrerPolicy: 'strict-origin-when-cross-origin',
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (compatible; Mangase/1.0)'
+    }
   });
 
   if (!mdResponse.ok || !mdResponse.body) {

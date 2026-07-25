@@ -63,7 +63,8 @@ export async function getManga(mangaId: string) {
      return data
 }
 
-export function convertToProxyLink(link: string) {
+export function convertToProxyLink(link: string | null) {
+     if (link === null) return;
      const proxyLink = '/api/proxy-image?url=' + encodeURIComponent(link)
      // console.log(proxyLink)
      return proxyLink

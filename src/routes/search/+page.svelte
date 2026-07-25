@@ -5,7 +5,7 @@
      import Filter from "$lib/assets/icons/filter.svg"
      import { AppInstance } from "$lib/modules/globals.svelte";
      import { goto } from "$app/navigation";
-     import { getMangaCoverArt, getTitle } from "$lib/modules/functions/manga.svelte";
+     import { convertToProxyLink, getMangaCoverArt, getTitle } from "$lib/modules/functions/manga.svelte";
 
      let filterTabOpen = $state(false)
      let hasSearched = $state(false)
@@ -81,7 +81,7 @@
                               
                               <!-- Cover Art -->
                               <div class="shrink-0 items-start">
-                                   <img src={result.coverString} alt="coverart" class="w-full object-cover">
+                                   <img src={convertToProxyLink(result.coverString)} alt="coverart" class="w-full object-cover">
                               </div>
 
                               <!-- Title -->
