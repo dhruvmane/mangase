@@ -114,23 +114,23 @@
           
           <!-- Buttons -->
           <div class="flex items-center gap-1 my-2 p-2 bg-neutral-950 rounded-mangase-rounded md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
-               {#if !isBookmarked}
+               <!-- {#if !isBookmarked} -->
                     <button class="p-2 rounded-mangase-rounded bg-neutral-800 flex-1 min-w-0" onclick={() => {goto(`/manga/${data.mangaId}/chapter/${data.chapterDetails.id}`)}}>Start Reading</button>
-                    <button class="p-2 rounded-mangase-rounded bg-neutral-800 shrink-0" onclick={() => {isBookmarked = !isBookmarked}}>
+                    <!-- <button class="p-2 rounded-mangase-rounded bg-neutral-800 shrink-0" onclick={() => {isBookmarked = !isBookmarked}}>
                          <img alt="share" src={BookmarkUnadded} class="size-6 invert" title="Change Language">
-                    </button>
-               {:else}
+                    </button> -->
+               <!-- {:else}
                     <button class="p-2 rounded-mangase-rounded bg-neutral-800 flex-1 min-w-0" onclick={() => {goto(`/manga/${_mangaData.mangaId}/chapter/1`)}}>Read Chapter {chapterLastRead}</button>
                     <button class="p-2 rounded-mangase-rounded bg-neutral-800 shrink-0" onclick={() => {isBookmarked = !isBookmarked}}>
                          <img alt="share" src={BookmarkAdded} class="size-6 invert" title="Change Language">
                     </button>
-               {/if}
-               <button class="p-2 rounded-mangase-rounded bg-neutral-800 shrink-0">
+               {/if} -->
+               <!-- <button class="p-2 rounded-mangase-rounded bg-neutral-800 shrink-0">
                     <img alt="share" src={Language} class="size-6 invert" title="Change Language">
-               </button>
-               <button class="p-2 rounded-mangase-rounded bg-neutral-800 shrink-0">
+               </button> -->
+               <!-- <button class="p-2 rounded-mangase-rounded bg-neutral-800 shrink-0">
                     <img alt="share" src={Share} class="size-6 invert" title="Share this Manga">
-               </button>
+               </button> -->
           </div>
 
 
@@ -138,10 +138,8 @@
           <div class="my-2 p-4 rounded-mangase-rounded bg-black flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
                <div class="grid grid-cols-[75%_25%] items-center rounded-mangase-rounded py-2">
                     <div class="flex gap-1">
-                         <img alt="share" src={Chapter} class="size-6 invert ml-2" title="Change Language">
                          <span class="text-center">Chapters</span>
                     </div>
-                    <img alt="share" src={Clock} class="size-6 invert m-auto" title="Change Language">
                </div>
                
                <div class="flex flex-col gap-1">

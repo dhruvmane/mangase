@@ -17,6 +17,8 @@
 
 <!-- Main Page Section -->
 <div class="border-black rounded-mangase-rounded p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+     <h1 class="text-center my-auto">Our website is heavily Work in Progress. Please use the search button to start reading manga!</h1>
+     <!--      
      <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
      {#if page.data.user}
           {#if data.recentlyUpdatedMangas}
@@ -38,8 +40,10 @@
           <h2 class="text-center text-[20px] text-neutral-600"><a href="/login" class="underline">Sign in</a> to stay up to date with your favourite mangas!</h2>
      {/if}
      </div>
+     -->
 
-     <!-- Most Popular Comics -->
+
+     <!-- Most Popular Comics
      <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
           <h1 class="flex items-center gap-2 text-2xl"><img alt="b" src={Fire} class="block invert size-5">Most Popular</h1>
           <div class="">
@@ -69,7 +73,9 @@
                </div>
           </div>
      </div>
-     <!-- Recommended By People -->
+      -->
+
+     <!-- Recommended By People
      <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
           <h1 class="flex items-center gap-2 text-[20px]"><img alt="b" src={Fire} class="block invert size-5">What People Recommend</h1>
           <div class="">
@@ -84,13 +90,15 @@
                </div>
           </div>
      </div>     
-     <!-- Latest (Positive) Reviews -->
+      -->
+     <!-- Latest (Positive) Reviews
      <div class="p-5 bg-mangase-bg rounded-mangase-rounded">
           <h1>Latest Reviews</h1>
           <div class="bg-white w-full min-h-[200px] rounded my-3">
           </div>
      </div>
-     <!-- Newly Added -->
+      -->
+     <!-- Newly Added
      <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
           <h1 class="flex items-center gap-2 text-2xl"><img alt="b" src={Star} class="block invert size-5">Newly Added</h1>
 
@@ -121,4 +129,5 @@
                </div>
           </div>
      </div>
+      -->
 </div>

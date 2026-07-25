@@ -31,7 +31,7 @@
 
 <main class="p-2 m-2 h-screen flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
      <Navbar state="SEARCH"/>
-     <!-- Search Filter -->
+     <!-- Search Filter
      <div class="px-4 py-2 flex flex-col rounded-mangase-rounded bg-black">
           <div class="flex items-center">
                <h1 class="px-2 text-[20px]">Filter</h1>
@@ -47,7 +47,7 @@
           </div>
 
           {#if filterTabOpen}
-               <!-- FILTERS  -->
+               <!-- FILTERS
                <div class="min-h-[100px] p-2 bg-neutral-900 rounded my-2">
                      Sort By
                     <h1>Genre</h1>
@@ -56,14 +56,14 @@
                     <h1>Popularity</h1>
                     <h1>Reviews</h1>
                </div>
-               <!-- APPLY FILTERS  -->
+               <!-- APPLY FILTERS
                <div class="my-2 flex gap-1">
                     <button class="p-2 flex-1 bg-neutral-900 rounded">Apply Filters</button>
                     <button class="p-2 flex-1 bg-neutral-900 rounded">Clear Filters</button>
                </div>
-          {/if}
           
      </div>
+     -->
 
      <!-- Search Results -->
      {#if hasSearched}
@@ -95,7 +95,8 @@
           </div>
      {:else}
           <div class="p-4 bg-black rounded-mangase-rounded">
-               <h1>Most Searched</h1>
+               <h1>Search for Manga</h1>
+               <h1 class="text-[10px]">powered by Mangadex</h1>
           </div>
      {/if}
 </main>

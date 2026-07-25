@@ -25,29 +25,30 @@
      <!-- Manga Info -->
      <div class="mb-4 bg-black rounded-2xl md:max-w-md lg:max-w-lg xl:max-w-xl  m-auto w-full">
           <div class="flex">
-               <button class="text-3xl m-5 mb-2 bg-neutral-900 w-full p-4 rounded-2xl" onclick={() => {goto(`/manga/${_mangaId}`)}}>{_mangaTitle}</button>
+               <button class="text-3xl m-5 mb-2 flex flex-col bg-neutral-900 w-full p-4 rounded-2xl" onclick={() => {goto(`/manga/${_mangaId}`)}}>{_mangaTitle}<br><span class="text-[12px]">click to return to home page</span></button>
           </div>
           <div class="p-4 flex flex-col gap-2">
-               <div class="flex gap-1">
-                    <!-- Chapter -->
+               <!-- <div class="flex gap-1">
+                    <!-- Chapter 
                     <select class="bg-black rounded flex-1 max-w-25">
                          <option>Ch 1</option>
                     </select>
-                    <!-- Language -->
+                    <!-- Language
                     <select class="bg-black rounded flex-1">
                          <option>Languages</option>
                     </select>
                
-               </div>
-               <!-- Source -->
+               </div> -->
+               <!-- Source 
                <select class="bg-black rounded flex-1">
                     <option>Scanlation Group</option>
                </select>
-               <!-- Data Mode -->
+               <!-- Data Mode
                <select class="bg-black rounded flex-1">
                     <option>Fast Loading</option>
                     <option>High Quality</option>
                </select>
+               -->
           </div>
      </div>
 
@@ -62,18 +63,18 @@
 
      <!-- HOME | Next Chapter -->
      <div class="flex my-2 gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
-          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-950" onclick={() => {goto("/home")}}>
+          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-900" onclick={() => {goto("/home")}}>
                <img alt="home" src={Home} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Go to Home</h2>
           </button>
-          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-950" onclick={() => {goto(`/manga/${_mangaId}/chapter/${data.nextChaptersData[0].id}?${new URLSearchParams({nextChapter: data.nextChapter})}`)}}>
+          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-900" onclick={() => {goto(`/manga/${_mangaId}/chapter/${data.nextChaptersData[0].id}?${new URLSearchParams({nextChapter: data.nextChapter})}`)}}>
                <img alt="home" src={NextChapter} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Next Chapter</h2>
           </button>
      </div>
      
      <!-- Comments -->
-     <Comments />
+     <!-- <Comments /> -->
      <!-- From your Bookmarks -->
      <!-- <div class="h-full rounded-2xl p-4 bg-black md:max-w-md lg:max-w-lg xl:max-w-xl  m-auto w-full">
           <h2 class="">From your Bookmarks</h2>

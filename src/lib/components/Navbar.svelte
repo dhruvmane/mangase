@@ -55,7 +55,7 @@
                <img alt="search" src={Search} class="invert size-5">
           </button>
           <!-- Profile -->
-          {#if profilePicURL}
+          <!-- {#if profilePicURL}
                <button class="bg-neutral-900 p-1 rounded-2xl" onclick={() => {goto(`/user/${page.data.user.name}`)}}>
                     <img alt="profile" src={profilePicURL} class="rounded-2xl size-7">
                </button>
@@ -63,12 +63,12 @@
                <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto(`/login`)}}>
                     <img alt="profile" src={Profile} class="invert size-5">
                </button>
-          {/if}
+          {/if} -->
           
           <!-- Settings -->
-          <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto("/settings")}}>
+          <!-- <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto("/settings")}}>
                <img alt="setting" src={Settings} class="invert size-5">
-          </button>
+          </button> -->
           {/if}
           
      </div>
