@@ -12,7 +12,7 @@
 
 body {
      height: 100%;
-     @apply bg-neutral-900 text-neutral-300
+     @apply bg-neutral-950 text-neutral-300
 }
 
 
@@ -41,7 +41,8 @@ button, a {
 /* Map CSS variables into Tailwind's theme so utilities get generated */
 @theme {
      --color-mangase-bg: var(--color-bg);
-     --font-mangase-main: var(--font-main)
+     --font-mangase-main: var(--font-main);
+     --radius-mangase-rounded: 16px;
 }
 
 /* Light theme (default) */

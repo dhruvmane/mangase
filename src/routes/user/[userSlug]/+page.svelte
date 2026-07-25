@@ -21,7 +21,7 @@
      <Navbar />
      <div class="flex flex-col gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
      <!-- Profile -->
-     <div class="flex items-center gap-5 p-4 rounded-2xl bg-black ">
+     <div class="flex items-center gap-5 p-4 rounded-mangase-rounded bg-black ">
           {#if page.data.user.profilePicURL}
                <button class="shrink-0" onclick={() => {goto(`/settings/#account-settings`)}}>
                     <img alt="user" src={page.data.user.profilePicURL} class="rounded-full size-20">
@@ -35,7 +35,7 @@
      </div>
      <!-- Description -->
      {#if page.data.user.description}
-     <div class="p-4 bg-black rounded-2xl flex flex-col gap-2">
+     <div class="p-4 bg-black rounded-mangase-rounded flex flex-col gap-2">
           <!-- About Me -->
           <div>
                <h1>About Me</h1>
@@ -53,7 +53,7 @@
      {/if}
 
      <!-- Your Manga List -->
-     <div class="text-center items-center gap-2 px-4 py-3 rounded-2xl bg-black">
+     <div class="text-center items-center gap-2 px-4 py-3 rounded-mangase-rounded bg-black">
           <div class="grid grid-cols-3">
                {#if userPageConfig._TOGGLED_DISPLAY === "MANGA_LIST"}
                     <button class="text-[12px] border-b py-2" >Your Manga List</button>

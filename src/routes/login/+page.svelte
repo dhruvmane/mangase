@@ -10,7 +10,7 @@
      <title>Login — Mangase</title>
 </svelte:head>
 
-<div class="m-4 p-4 bg-black rounded-2xl">
+<div class="p-4 bg-black rounded-mangase-rounded lg:max-w-lg m-auto">
      <form class="flex flex-col gap-2 my-12 text-neutral-400" method="POST">
           <label>
                Enter Username/Email

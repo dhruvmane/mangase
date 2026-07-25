@@ -16,8 +16,8 @@
 </script>
 
 <!-- Main Page Section -->
-<div class="border-black rounded-2xl p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
-     <div class="h-full rounded-2xl p-3 bg-mangase-bg ">
+<div class="border-black rounded-mangase-rounded p-2 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl justify-self-center w-full">
+     <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
      {#if page.data.user}
           {#if data.recentlyUpdatedMangas}
                <h1 class="flex items-center gap-2 text-2xl"><img alt="b" src={Sparkles} class="block invert size-5">Recently Updated</h1>
@@ -40,7 +40,7 @@
      </div>
 
      <!-- Most Popular Comics -->
-     <div class="h-full rounded-2xl p-3 bg-mangase-bg ">
+     <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
           <h1 class="flex items-center gap-2 text-2xl"><img alt="b" src={Fire} class="block invert size-5">Most Popular</h1>
           <div class="">
 
@@ -70,7 +70,7 @@
           </div>
      </div>
      <!-- Recommended By People -->
-     <div class="h-full rounded-2xl p-3 bg-mangase-bg ">
+     <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
           <h1 class="flex items-center gap-2 text-[20px]"><img alt="b" src={Fire} class="block invert size-5">What People Recommend</h1>
           <div class="">
                <div class="flex gap-x-1 overflow-x-auto whitespace-nowrap my-2 rounded">
@@ -85,13 +85,13 @@
           </div>
      </div>     
      <!-- Latest (Positive) Reviews -->
-     <div class="p-5 bg-mangase-bg rounded-2xl">
+     <div class="p-5 bg-mangase-bg rounded-mangase-rounded">
           <h1>Latest Reviews</h1>
           <div class="bg-white w-full min-h-[200px] rounded my-3">
           </div>
      </div>
      <!-- Newly Added -->
-     <div class="h-full rounded-2xl p-3 bg-mangase-bg ">
+     <div class="h-full rounded-mangase-rounded p-3 bg-mangase-bg ">
           <h1 class="flex items-center gap-2 text-2xl"><img alt="b" src={Star} class="block invert size-5">Newly Added</h1>
 
           <div class="">

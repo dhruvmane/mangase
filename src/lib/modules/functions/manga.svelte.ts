@@ -23,11 +23,13 @@ interface IChapterObject {
 async function getChaptersSource (chapterId: string, type: chapterDataEnum) {
      const response = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`)
      const data = await response.json()
-     let list: IChapterObject[] = []
-
+     if (data) {
+          console.log(data)
+     }
+     let list: any[] = []
      let pageCount = 0;
-     
-     data.chapter.data.forEach((chapter: any) => {
+     const chapterData = data.chapter
+     chapterData.data.forEach((chapter: any) => {
           const _url = `${data.baseUrl}/${chapterDataEnum[type]}/${data.chapter.hash}/${chapter}` as string
           const chapter_object = {
                page: pageCount++,
@@ -56,9 +58,26 @@ async function getAuthor(manga: any) {
 }
 
 export async function getManga(mangaId: string) {
-     const response = await fetch(`${API_URL}/manga/${mangaId}`)
+     const response = await fetch(`${API_URL}/manga/${mangaId}?includes[]=chapter`)
      const data = await response.json()
      return data
+}
+
+export async function getAllChapters(mangaData: any, query: any) {
+     const mangaId = mangaData.data.id
+     const _query = new URLSearchParams({
+          limit: query.limit,
+          'order[chapter]': 'asc',
+          includeExternalUrl: '0'
+     })
+     
+     const url = `https://api.mangadex.org/manga/${mangaId}/feed?${_query}`
+     console.log(url)
+     const _fetch = await fetch(url)
+     const response = await _fetch.json()
+     const responseArray = response.data
+     
+     return responseArray
 }
 
 export function getTitle(dict: Record<string, string>): string {
@@ -92,5 +111,15 @@ async function searchMangaQuery(q: string) {
      }
 }
 
+async function getMangaCoverName(mangaData: any): Promise<string> {
+     // Cover Page for Manga Page
+     const coverData = mangaData.data.relationships.find((relation: any) => relation.type === "cover_art")
+     const coverId = coverData.id;
+     const src = `https://api.mangadex.org/cover/${coverId}`
+     const response = await fetch(src)
+     const data = await response.json()
+     return data.data.attributes.fileName as string
+}
+
 export { searchMangaQuery }
-export { getMangaCoverArt, getAuthor, getChaptersSource }
+export { getMangaCoverArt, getAuthor, getChaptersSource, getMangaCoverName }

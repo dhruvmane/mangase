@@ -18,10 +18,10 @@
           <div class="my-10 flex flex-col text-center gap-2 justify-self-center">
                <div class="relative hover:scale-105 duration-300 transition h-[20px] bg-black">
                     <button class="p-4 rounded bg-neutral-800 w-[210px]" onclick={() => goto('/home')}>Browse Manga</button>
-                    <div class="flex items-center">
+                    <!-- <div class="flex items-center">
                          <img alt="kirisu" src={Kirisu} class="w-[50px] -translate-y-20">
                          <img alt="nagase" src={Nagase} class="w-[50px] ml-auto -translate-y-20">
-                    </div>
+                    </div> -->
                </div>
                <a href="/login" class="text-neutral-600 underline">Or Log In, here!</a>
           </div>

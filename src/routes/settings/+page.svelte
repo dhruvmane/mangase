@@ -49,12 +49,12 @@
      <title>Settings — Mangase</title>
 </svelte:head>
 
-<main class="p-2 m-2 gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
+<main class="m-2 p-2 grid justify-self-center  gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl">
      <div>
           <Navbar />
      </div>
      <div class="flex flex-col gap-2">
-     <div class="flex flex-col gap-2 p-2 bg-black rounded-2xl">
+     <div class="flex flex-col gap-2 p-2 bg-black rounded-mangase-rounded">
           <!-- App Settings -->
           <div class="p-2">
                <h2 class="text-2xl">App Settings</h2>
@@ -83,7 +83,7 @@
           
      </div>
 
-     <div class="flex flex-col gap-5 p-2 bg-black rounded-2xl">
+     <div class="flex flex-col gap-5 p-2 bg-black rounded-mangase-rounded">
           <!-- Content Settings -->
           <div class="p-2">
                <h2 class="text-2xl">Content Settings</h2>
@@ -120,7 +120,7 @@
           
      </div>
      
-     <div class="flex flex-col gap-5 p-2 bg-black rounded-2xl">
+     <div class="flex flex-col gap-5 p-2 bg-black rounded-mangase-rounded">
           <!-- Account Settings -->
           <div class="p-2">
                <h2 class="text-2xl" id="account-settings">Account Settings</h2>
@@ -139,7 +139,7 @@
                                                   <img class="w-full invert size-12" src={Placeholder} alt="profile-pic">
                                              {/if}
                                         </div>
-                                        <label class="p-3 absolute bottom-0 rounded-2xl translate-x-1 -translate-y-1 bg-neutral-950 hover:bg-neutral-800">
+                                        <label class="p-3 absolute bottom-0 rounded-mangase-rounded translate-x-1 -translate-y-1 bg-neutral-950 hover:bg-neutral-800">
                                                   <form
                                                        action="?/uploadProfilePic"
                                                        method="POST"

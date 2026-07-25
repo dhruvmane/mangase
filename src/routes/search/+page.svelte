@@ -32,15 +32,15 @@
 <main class="p-2 m-2 h-screen flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
      <Navbar state="SEARCH"/>
      <!-- Search Filter -->
-     <div class="px-4 py-2 flex flex-col rounded-2xl bg-black">
+     <div class="px-4 py-2 flex flex-col rounded-mangase-rounded bg-black">
           <div class="flex items-center">
                <h1 class="px-2 text-[20px]">Filter</h1>
                {#if !filterTabOpen}
-                    <button class="p-2 rounded-2xl bg-neutral-950 ml-auto"
+                    <button class="p-2 rounded-mangase-rounded bg-neutral-950 ml-auto"
                          onclick={() => {filterTabOpen = !filterTabOpen}}
                     ><img alt="filter" src={Filter} class="invert size-6"></button>
                {:else}
-                    <button class="p-2 rounded-2xl bg-neutral-900 ml-auto"
+                    <button class="p-2 rounded-mangase-rounded bg-neutral-900 ml-auto"
                          onclick={() => {filterTabOpen = !filterTabOpen}}
                     ><img alt="filter" src={Filter} class="invert size-6"></button>
                {/if}
@@ -67,7 +67,7 @@
 
      <!-- Search Results -->
      {#if hasSearched}
-          <div class="p-4 bg-black rounded-2xl">
+          <div class="p-4 bg-black rounded-mangase-rounded">
                <h1 class="text-[12px]">Search Results for</h1>
                <h1 class="text-2xl">{searchQuery}</h1>
 
@@ -94,7 +94,7 @@
                </div>
           </div>
      {:else}
-          <div class="p-4 bg-black rounded-2xl">
+          <div class="p-4 bg-black rounded-mangase-rounded">
                <h1>Most Searched</h1>
           </div>
      {/if}

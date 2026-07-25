@@ -8,7 +8,10 @@
      - A Curated "Recommended Manga" Feed.
 
 - Review System
-     - Rating system (x/10)
+     - Rating system 
+          - MUST READ
+          - It's Aight
+          - DO NOT TOUCH
 
 - Commenting System
      - Managing Comments and Formatting (Markdown)

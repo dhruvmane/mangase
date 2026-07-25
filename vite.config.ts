@@ -1,5 +1,5 @@
 import tailwindcss from '@tailwindcss/vite';
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-node';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
@@ -19,5 +19,5 @@ export default defineConfig({
 			}
 		})
 	],
-	server: { allowedHosts: ["aging-circuits-buy-grass.trycloudflare.com"] }
+	server: { allowedHosts: ["shift-salvation-papers-cork.trycloudflare.com"] }
 });

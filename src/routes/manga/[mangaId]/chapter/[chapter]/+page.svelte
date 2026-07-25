@@ -11,9 +11,8 @@
      import { onMount } from 'svelte';
 
      let { data } = $props()
-     let currentChapter = parseInt(data.chapterData.chapter)
      // $inspect(data)
-     
+     // console.log(data)
      const _mangaTitle = getTitle(data.mangaData.data.attributes.title)
      const _mangaId = data.mangaId
 
@@ -67,7 +66,7 @@
                <img alt="home" src={Home} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Go to Home</h2>
           </button>
-          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-950" onclick={() => {goto(`/manga/${_mangaId}/chapter/${nextChapter}`)}}>
+          <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-950" onclick={() => {goto(`/manga/${_mangaId}/chapter/${data.nextChaptersData[0].id}?${new URLSearchParams({nextChapter: data.nextChapter})}`)}}>
                <img alt="home" src={NextChapter} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Next Chapter</h2>
           </button>

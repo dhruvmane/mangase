@@ -26,7 +26,7 @@
 <div class="m-2 p-2">
      <Navbar />
 </div>
-<div class="mx-4 p-4 bg-black rounded-2xl">
+<div class="p-4 bg-black rounded-2xl lg:max-w-lg m-auto">
      <form class="flex flex-col gap-2 my-12 text-neutral-400" method="POST">
           <label class="capitalize">
                enter username

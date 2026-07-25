@@ -2,7 +2,7 @@ import type { PageServerLoad } from "./$types";
 import { db } from "$lib/server/db";
 import { mangas } from "$lib/server/db/schema";
 import { eq } from "drizzle-orm";
-import { getAuthor } from "$lib/modules/functions/manga.svelte";
+import { getAllChapters, getAuthor, getMangaCoverName } from "$lib/modules/functions/manga.svelte";
 
 // Check if it exists in Database, if not, add it.
 async function databaseCheck(id: string) {
@@ -63,33 +63,7 @@ async function databaseCheck(id: string) {
      console.log(`New Manga Entry Added: Slug: ${slug}`)
 }
 
-async function getMangaCoverName(mangaData: any): Promise<string> {
 
-     // Cover Page for Manga Page
-     const coverData = mangaData.data.relationships.find((relation: any) => relation.type === "cover_art")
-     const coverId = coverData.id;
-     const src = `https://api.mangadex.org/cover/${coverId}`
-     const response = await fetch(src)
-     const data = await response.json()
-
-     return data.data.attributes.fileName as string
-}
-
-async function getAllChapters(mangaData: any, query: any) {
-     const mangaId = mangaData.data.id
-     
-     const _query = new URLSearchParams({
-          limit: query.limit
-     })
-
-     if (query.translatedLanguage) {
-          query.translatedLanguage.forEach((item: string) => _query.append("translatedLanguage[]", item))
-     }
-
-     const _fetch = await fetch(`https://api.mangadex.org/manga/${mangaId}/feed?${_query}`)
-     const response = await _fetch.json()
-     return response.data.sort((a, b) => a.attributes.chapter - b.attributes.chapter)
-}
 
 
 export const load: PageServerLoad = async ( {params} ) => {
@@ -112,7 +86,7 @@ export const load: PageServerLoad = async ( {params} ) => {
      const authorDetails = await getAuthor(mangaDataResponse.data)
      const chapterDetails = await getAllChapters(mangaDataResponse, {
           limit: 300,
-          translatedLanguage: ['en', 'ja-ro']
+          translatedLanguage: ['en']
      })
 
      // console.log(chapterDetails)
