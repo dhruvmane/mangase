@@ -12,6 +12,7 @@
      import BookmarkAdded from '$lib/assets/icons/bookmark-added.svg'
      import Clock from '$lib/assets/icons/clock.svg'
      import Chapter from '$lib/assets/icons/chapter.svg'
+     import { convertToProxyLink } from '$lib/modules/functions/manga.svelte.js';
 
      let isBookmarked = $state(false)
      let chapterLastRead: number = $state(1)
@@ -24,7 +25,7 @@
      onMount(() => {
           _mangaData = data.mangaData.data;
           dateStringBeautify(_mangaData.attributes.createdAt)
-          coverArtSrc = `https://uploads.mangadex.org/covers/${data.mangaId}/${data.coverFileName}`
+          coverArtSrc = convertToProxyLink(`https://uploads.mangadex.org/covers/${data.mangaId}/${data.coverFileName}`)
 
 
           isLoaded = true

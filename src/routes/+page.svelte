@@ -1,8 +1,6 @@
 <script>
      import { goto } from "$app/navigation";
      import Logo from '$lib/assets/favicon/favicon.ico'
-     import Kirisu from "$lib/assets/mascot-skins/poses/Kirisu1.png"
-     import Nagase from "$lib/assets/mascot-skins/poses/Nagase1.png"
 </script>
 
 

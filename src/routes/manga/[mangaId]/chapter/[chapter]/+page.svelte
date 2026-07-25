@@ -1,4 +1,4 @@
-<script>
+<script lang=ts>
     import Navbar from '$lib/components/Navbar.svelte';
     import Advert from '$lib/sections/Advert.svelte';
 
@@ -7,7 +7,7 @@
      import NextChapter from '$lib/assets/icons/next-chapter.svg'
      import { goto } from '$app/navigation';
      import Comments from '$lib/components/Comments.svelte';
-     import { getTitle } from '$lib/modules/functions/manga.svelte.js';
+     import { convertToProxyLink, getTitle } from '$lib/modules/functions/manga.svelte.js';
      import { onMount } from 'svelte';
 
 
@@ -15,6 +15,8 @@
      // $inspect(data)
      const _mangaTitle = getTitle(data.mangaData.data.attributes.title)
      const _mangaId = data.mangaId
+
+     
 
 </script>
 
@@ -56,7 +58,7 @@
      <div class="p-0.5 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl  m-auto w-full">
           {#each data.chapterData as page}
                <div class="m-auto shrink-0">
-                    <img src={'/api/proxy-image?url=' + encodeURIComponent(page.url)} alt={`Page ${page.page}`}>
+                    <img src={convertToProxyLink(page.url)} alt={`Page ${page.page}`}>
                </div>
           {/each}
      </div>

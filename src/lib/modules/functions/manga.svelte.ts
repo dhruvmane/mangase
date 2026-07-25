@@ -63,6 +63,12 @@ export async function getManga(mangaId: string) {
      return data
 }
 
+export function convertToProxyLink(link: string) {
+     const proxyLink = '/api/proxy-image?url=' + encodeURIComponent(link)
+     console.log(proxyLink)
+     return proxyLink
+}
+
 export async function getAllChapters(mangaData: any, query: any) {
      const mangaId = mangaData.data.id
      const _query = new URLSearchParams({
@@ -100,7 +106,7 @@ async function searchMangaQuery(q: string) {
      }
      // Log Search Activity
      console.log(`USER_ACTION: Searched for '${q}' in /search.`)
-     const response = await fetch(`/api/search?${new URLSearchParams({ q })}`)
+     const response = await fetch(`/api/search?${new URLSearchParams({ q, limit: '100' })}`)
      const data = await response.json()
      if (AppInstance._USER_CONFIG && AppInstance._USER_CONFIG?._SEARCH) {
           AppInstance._USER_CONFIG._SEARCH = data.data
