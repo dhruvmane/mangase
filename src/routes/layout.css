@@ -2,7 +2,6 @@
 @plugin '@tailwindcss/forms';
 @plugin "@tailwindcss/typography";
 
-
 * {
      font-family: var(--font-mangase-main);
      scroll-behavior: smooth;
@@ -17,6 +16,19 @@ body {
 
 button, a {
      @apply hover:cursor-pointer
+}
+
+
+/* Map CSS variables into Tailwind's theme so utilities get generated */
+@theme {
+     --color-mangase-bg: var(--color-bg);
+     --font-mangase-main: var(--font-main);
+     --radius-mangase-rounded: 16px;
+}
+
+:root {
+     --color-bg: linear-gradient(180deg,rgba(15, 15, 15, 1) 50%, rgba(0, 0, 0, 1) 100%);
+     --font-main: 'Google Sans';
 }
 
 
@@ -35,34 +47,4 @@ button, a {
 @font-face {
      font-family: 'Instrument Serif';
      src: url('$lib/font/instrumentserif.ttf');
-}
-
-/* Map CSS variables into Tailwind's theme so utilities get generated */
-@theme {
-     --color-mangase-bg: var(--color-bg);
-     --font-mangase-main: var(--font-main);
-     --radius-mangase-rounded: 16px;
-}
-
-/* Light theme (default) */
-:root,
-
-/* Sunset theme (custom example) */
-[data-theme="sunset"] {
-     --color-bg: #2d1b2e;
-}
-
-[data-theme="aaa"] {
-     --color-bg: #49a746;
-}
-
-/* Light */
-[data-theme="light"] {
-     --color-bg: #c53434;
-}
-
-/* Dark theme */
-[data-theme="dark"] {
-     --color-bg: #000000;
-     --font-main: "Google Sans"
 }

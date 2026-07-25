@@ -70,7 +70,7 @@
           <!-- Manga Cover Art -->
           <div class="m-auto my-2 mb-4 w-[310px]">
                <button class="h-full w-full" aria-label="Cover" onclick={() => {goto(`/manga/${_mangaData.mangaId}/cover`)}}>
-                    <img src={coverArtSrc} alt="cover" class="h-full w-full object-fit">
+                    <img loading="lazy" src={coverArtSrc} alt="cover" class="h-full w-full object-fit">
                </button>
           </div>
           
