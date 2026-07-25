@@ -24,7 +24,7 @@ async function getChaptersSource (chapterId: string, type: chapterDataEnum) {
      const response = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`)
      const data = await response.json()
      if (data) {
-          console.log(data)
+          // console.log(data)
      }
      let list: any[] = []
      let pageCount = 0;
@@ -72,7 +72,7 @@ export async function getAllChapters(mangaData: any, query: any) {
      })
      
      const url = `https://api.mangadex.org/manga/${mangaId}/feed?${_query}`
-     console.log(url)
+     // console.log(url)
      const _fetch = await fetch(url)
      const response = await _fetch.json()
      const responseArray = response.data

@@ -10,9 +10,9 @@
      import { getTitle } from '$lib/modules/functions/manga.svelte.js';
      import { onMount } from 'svelte';
 
+
      let { data } = $props()
      // $inspect(data)
-     // console.log(data)
      const _mangaTitle = getTitle(data.mangaData.data.attributes.title)
      const _mangaId = data.mangaId
 
@@ -55,7 +55,7 @@
      <div class="p-0.5 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl  m-auto w-full">
           {#each data.chapterData as page}
                <div class="m-auto shrink-0">
-                    <img src={page.url} alt={`Page ${page.page}`}>
+                    <img src={'/api/proxy-image?url=' + encodeURIComponent(page.url)} alt={`Page ${page.page}`}>
                </div>
           {/each}
      </div>
