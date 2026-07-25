@@ -18,7 +18,7 @@
                     <p class="">powered by Mangadex.</p>
                </div>
           </div>
-          <div class="my-10 flex flex-col text-center gap-2 justify-self-center">
+          <div class="my-10 flex flex-col items-center text-center gap-2 justify-self-center">
                     <button class="p-4 rounded bg-neutral-800 w-[210px]" onclick={() => goto('/home')}>Browse Manga</button>
                     <!-- <div class="flex items-center">
                          <img alt="kirisu" src={Kirisu} class="w-[50px] -translate-y-20">
