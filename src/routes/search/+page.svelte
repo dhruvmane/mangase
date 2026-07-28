@@ -81,7 +81,7 @@
                               
                               <!-- Cover Art -->
                               <div class="shrink-0 items-start">
-                                   <img src={convertToProxyLink(result.coverString)} alt="coverart" class="w-full object-cover">
+                                   <img src={convertToProxyLink(result.coverString)} loading="lazy" alt="coverart" class="w-full object-cover">
                               </div>
 
                               <!-- Title -->

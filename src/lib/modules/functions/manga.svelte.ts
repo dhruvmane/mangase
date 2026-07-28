@@ -78,6 +78,12 @@ export async function getAllChapters(mangaData: any, query: any) {
           includeExternalUrl: '0'
      })
      
+     if (query.translatedLanguage) {
+          query.translatedLanguage.forEach((lang: string) => {
+               _query.append('translatedLanguage[]', lang)
+          });
+     }
+
      const url = `https://api.mangadex.org/manga/${mangaId}/feed?${_query}`
      // console.log(url)
      const _fetch = await fetch(url)

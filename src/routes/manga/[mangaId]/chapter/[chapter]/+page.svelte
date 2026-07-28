@@ -58,7 +58,7 @@
      <div class="p-0.5 flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl  m-auto w-full">
           {#each data.chapterData as page}
                <div class="m-auto shrink-0">
-                    <img src={convertToProxyLink(page.url)} alt={`Page ${page.page}`}>
+                    <img src={convertToProxyLink(page.url)} loading="lazy" alt={`Page ${page.page}`}>
                </div>
           {/each}
      </div>
@@ -66,11 +66,11 @@
      <!-- HOME | Next Chapter -->
      <div class="flex my-2 gap-1 md:max-w-md lg:max-w-lg xl:max-w-xl m-auto w-full">
           <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-900" onclick={() => {goto("/home")}}>
-               <img alt="home" src={Home} class="size-7 m-auto invert my-2">
+               <img alt="home" loading="lazy" src={Home} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Go to Home</h2>
           </button>
           <button class="p-2 rounded-2xl justify-center flex-1 bg-neutral-900" onclick={() => {goto(`/manga/${_mangaId}/chapter/${data.nextChaptersData[0].id}?${new URLSearchParams({nextChapter: data.nextChapter})}`)}}>
-               <img alt="home" src={NextChapter} class="size-7 m-auto invert my-2">
+               <img alt="home" loading="lazy" src={NextChapter} class="size-7 m-auto invert my-2">
                <h2 class="text-[10px]">Next Chapter</h2>
           </button>
      </div>

@@ -31,10 +31,6 @@ export const GET: RequestHandler = async ({ url, fetch }) => {
     throw error(mdResponse.status, 'Failed to fetch image');
   }
 
-  console.log('status:', mdResponse.status);
-  console.log('content-length:', mdResponse.headers.get('content-length'));
-  console.log('cf-cache-status:', mdResponse.headers.get('cf-cache-status'));
-
   return new Response(mdResponse.body, {
     status: 200,
     headers: {
