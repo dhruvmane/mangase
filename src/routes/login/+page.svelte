@@ -1,5 +1,7 @@
 <script>
      import Navbar from "$lib/components/Navbar.svelte";
+     
+
 </script>
 
 <div class="m-4">

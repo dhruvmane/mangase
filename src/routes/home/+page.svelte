@@ -13,9 +13,13 @@
      <title>Home — Mangase</title>
 </svelte:head>
 
-<main class="p-2 m-2 md:max-w-md lg:max-w-lg lg:m-auto">
-    <Navbar />
-    <Notice/>
-    <Advert />
-    <Main data={page.data} />
+<main class="p-2 m-2 md:max-w-md lg:max-w-lg lg:m-auto flex">
+    <div>
+        <Navbar />
+        <Notice/>
+        <Advert />
+        <Main data={page.data} />
+    </div>
+    <div>
+    </div>
 </main>

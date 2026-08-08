@@ -5,7 +5,7 @@ import { db } from '$lib/server/db';
 import { eq } from 'drizzle-orm';
 import { users } from '$lib/server/db/schema';
 import bcrypt from 'bcrypt';
-import { createSession } from '$lib/server/auth';
+// import { createSession } from '$lib/server/auth';
 
 export const actions: Actions = {
      default: async ({request, cookies}) => {

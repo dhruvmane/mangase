@@ -20,7 +20,7 @@ export const GET: RequestHandler = async ({ url, fetch }) => {
     throw error(403, 'Host not allowed');
   }
 
-  const mdResponse = await fetch(imageUrl, {
+  const mdResponse = await fetch(parsed, {
     headers: {
       'Referer': 'https://mangadex.org/',
       'User-Agent': 'Mozilla/5.0 (compatible; Mangase/1.0)'

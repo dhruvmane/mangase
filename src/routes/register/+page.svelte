@@ -1,16 +1,29 @@
 <script lang=ts>
      import { goto } from "$app/navigation";
-    import Navbar from "$lib/components/Navbar.svelte";
+     import Navbar from "$lib/components/Navbar.svelte";
+     import { authClient } from "$lib/auth/client";
+
+     const session = authClient.useSession();
+
      
-     let name: string = $state("")
+     let _name: string = $state("")
      let date: string = $state("")
-     let email: string = $state("");
-     let password: string = $state("");
+     let _email: string = $state("");
+     let _password: string = $state("");
      let confirmPassword: string = $state("");
      let passwordsMatch = $state(false)
+     
+     async function signUp() {
+          await authClient.signUp.email({
+               email: _email,
+               password: _password,
+               name: _name 
+          })
+     } 
+     
 
      $effect(() => {
-          if (confirmPassword === password) {
+          if (confirmPassword === _password) {
                passwordsMatch = true
           } else {
                passwordsMatch = false
@@ -30,7 +43,7 @@
      <form class="flex flex-col gap-2 my-12 text-neutral-400" method="POST">
           <label class="capitalize">
                enter username
-               <input type="text" name="name" bind:value={name} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
+               <input type="text" name="name" bind:value={_name} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
           </label>
           <label class="capitalize">
                enter date of birth
@@ -38,15 +51,15 @@
           </label>
           <label class="capitalize">
                enter email
-               <input type="email" name="email" bind:value={email} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
+               <input type="email" name="email" bind:value={_email} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
           </label>
           
           <label class="capitalize flex flex-col gap-1">
                enter password
                {#if passwordsMatch === true}
-                    <input type="password" name="password" bind:value={password} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
+                    <input type="password" name="password" bind:value={_password} class="bg-neutral-950 rounded border-0 focus:ring-0 w-full">
                     {:else}
-                    <input type="password" name="password" bind:value={password} class="bg-neutral-950 rounded border-red-600 border-2 focus:ring-0 w-full">
+                    <input type="password" name="password" bind:value={_password} class="bg-neutral-950 rounded border-red-600 border-2 focus:ring-0 w-full">
                     {/if}
                </label>
                

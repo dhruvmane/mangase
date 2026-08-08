@@ -49,7 +49,7 @@
      <title>Settings — Mangase</title>
 </svelte:head>
 
-<main class="m-2 p-2 grid justify-self-center  gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl">
+<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto h-screen">
      <div>
           <Navbar />
      </div>

@@ -25,17 +25,4 @@ function getNewlyAdded() {
 
 export const load: PageServerLoad = async () => {
 
-     let recentlyUpdatedMangas;
-
-     try {
-          recentlyUpdatedMangas = await db.select().from(userMangaList).where(asc(userMangaList.lastUpdatedAt))
-     } catch (error) {
-     }
-
-     
-
-     return({
-               recentlyUpdatedMangas
-          })
-
 }

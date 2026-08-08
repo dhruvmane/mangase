@@ -29,7 +29,7 @@
      {/if}
 </svelte:head>
 
-<main class="p-2 m-2 h-screen flex flex-col gap-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto">
+<main class="m-2 p-2 md:max-w-md lg:max-w-lg xl:max-w-xl xl:m-auto h-screen">
      <Navbar state="SEARCH"/>
      <!-- Search Filter
      <div class="px-4 py-2 flex flex-col rounded-mangase-rounded bg-black">

@@ -5,7 +5,6 @@ import { users } from '$lib/server/db/schema';
 import bcrypt from 'bcrypt';
 import type { PageServerLoad } from '../$types';
 import { fail, redirect } from '@sveltejs/kit';
-import { createSession } from '$lib/server/auth';
 
 export const actions: Actions = {
      default: async ({request, cookies}) => {
@@ -45,15 +44,15 @@ export const actions: Actions = {
                .insert(users).values({email, name, password_hash: passwordHash, id: crypto.randomUUID()}).returning({name: users.name, email: users.email})
           
           // Store Session Token on Register/Login
-          const {token, expiresAt} = await createSession(generatedUserId)
+          // const {token, expiresAt} = await createSession(generatedUserId)
 
-          cookies.set("session", token, {
-               path: "/",
-               httpOnly: true,
-               secure: true,
-               sameSite: "lax",
-               expires: expiresAt
-          })
+          // cookies.set("session", token, {
+          //      path: "/",
+          //      httpOnly: true,
+          //      secure: true,
+          //      sameSite: "lax",
+          //      expires: expiresAt
+          // })
           
           throw redirect(303, '/home')
      }
@@ -62,5 +61,5 @@ export const actions: Actions = {
 // Load Hook
 export const load: PageServerLoad = async () => {
      const allUsers = await db.select().from(users)
-     console.log(allUsers)
+     // console.log(allUsers)
 }

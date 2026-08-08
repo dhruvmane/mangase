@@ -1,6 +1,8 @@
-import { AppInstance } from '$lib/modules/globals.svelte';
+import { db } from '$lib/server/db';
+import { mangas } from '$lib/server/db/schema';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from "@sveltejs/kit";
+import { sql } from 'drizzle-orm';
 
 const API_URI = "https://api.mangadex.org"
 
@@ -10,16 +12,15 @@ export const GET: RequestHandler = async ({ url }) => {
      
      let title = url.searchParams.get("q") ?? ""
 
-     const includes = ['author', 'artist', 'cover_art']
-     let params = new URLSearchParams({
-          title: title,
-     })
+     // const includes = ['author', 'artist', 'cover_art']
+     // let params = new URLSearchParams({
+          // title: title,
+     // })
 
-     includes.forEach(item => params.append('includes[]', item))
+     // includes.forEach(item => params.append('includes[]', item))
 
      // MANGADEX
-     const response = await fetch(`${API_URI}/manga?${params}`)
-     const data = await response.json()
+     // const response = await fetch(`${API_URI}/manga?${params}`)
 
-     return json(data);
+     // return json(results);
 };
