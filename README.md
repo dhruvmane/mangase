@@ -2,6 +2,12 @@
 [W.I.P] your personal comic cafe. Mangase is a social manga/comics reading website.
 
 # plans
+
+- Website
+     - Add Dark Mode
+     - Add Custom Themes (with daisyui hopefully)
+     - Add a proper backend
+
 - Social Media System
      - ~~Account system with custom @username.~~ ✅
      - ~~Sending Mangas/Manga Panels/Pages to your Friends.~~ ✅
@@ -27,6 +33,14 @@
           - Comics Completed
           - Reviews Made
                - REPs collected
+
+- Creators
+     - Add a `/create` page.
+     - Add manga uploading/creating page.
+     - Add image optimization (conversion to .webp for faster loading)
+     - Add a dashboard for Content Analytics
+     - Add Revenue
+
 
 - Website
      - Adding a Blog Section
