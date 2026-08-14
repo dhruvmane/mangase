@@ -1,4 +1,4 @@
-<script lang=ts>
+<script lang="ts">
     import Navbar from '$lib/components/Navbar.svelte';
     import Advert from '$lib/sections/Advert.svelte';
 

@@ -13,6 +13,8 @@ export const actions: Actions = {
           const nameOrEmail = formData.get('nameOrEmail') as string
           const plainPassword = formData.get('password') as string
 
+          if (nameOrEmail === "" || plainPassword === "") return;
+
           // Get Data
           const emailCheckRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi;
           const isEmail = emailCheckRegex.test(nameOrEmail)

@@ -1,4 +1,4 @@
-<script lang=ts>
+<script lang="ts">
      import { goto } from "$app/navigation";
      import Navbar from "$lib/components/Navbar.svelte";
      import { authClient } from "$lib/auth/client";

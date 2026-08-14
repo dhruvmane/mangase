@@ -20,37 +20,37 @@ export const actions: Actions = {
      },
 
      uploadProfilePic: async ({request, locals}) => {
-          // const data = await request.formData()
-          // const profilePicURL = data.get("profilePicURL") as string
-          // const profilePicKey = data.get('profilePicKey') as string
-          // const user = locals.user
+          const data = await request.formData()
+          const profilePicURL = data.get("profilePicURL") as string
+          const profilePicKey = data.get('profilePicKey') as string
+          const user = locals.user
 
-          // if(!user) {
-          //      redirect(303, '/login')
-          // }
+          if(!user) {
+               redirect(303, '/login')
+          }
 
-          // // Delete Existing User.
-          // let userEntry
-          // try {
-          //      userEntry = await db.select({profilePicKey: users.profilePicKey, profilePicURL: users.profilePicURL, email: users.email}).from(users).where(eq(users.email, user.email))
-          // } catch (err) {
-          //      console.log(err)
-          // }
+          // Delete Existing User.
+          let userEntry
+          try {
+               userEntry = await db.select({profilePicKey: users.profilePicKey, profilePicURL: users.profilePicURL, email: users.email}).from(users).where(eq(users.email, user.email))
+          } catch (err) {
+               console.log(err)
+          }
 
-          // if (userEntry && userEntry[0].profilePicKey) {
-          //      // Delete Old Profile Picture.
-          //      utapi.deleteFiles([userEntry[0].profilePicKey])
-          // }          
+          if (userEntry && userEntry[0].profilePicKey) {
+               // Delete Old Profile Picture.
+               utapi.deleteFiles([userEntry[0].profilePicKey])
+          }          
 
-          // // Store Profile Pic in Locals
-          // user.profilePicURL = profilePicURL
-          // user.profilePicKey = profilePicKey
+          // Store Profile Pic in Locals
+          user.profilePicURL = profilePicURL
+          user.profilePicKey = profilePicKey
 
-          // try {
-          //      await db.update(users).set({profilePicKey: profilePicKey, profilePicURL: profilePicURL}).where(eq(users.email, user.email))
-          // } catch (err) {
-          //      console.log(err)
-          // }
+          try {
+               await db.update(users).set({profilePicKey: profilePicKey, profilePicURL: profilePicURL}).where(eq(users.email, user.email))
+          } catch (err) {
+               console.log(err)
+          }
 
      }
 }

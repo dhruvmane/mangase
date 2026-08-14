@@ -25,6 +25,7 @@ button, a {
      --color-mangase-bg: var(--color-bg);
      --font-mangase-main: var(--font-main);
      --radius-mangase-rounded: 16px;
+     --radius-ui: 7px;
 }
 
 :root {

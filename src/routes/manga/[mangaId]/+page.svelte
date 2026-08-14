@@ -1,5 +1,5 @@
 <!-- Manga Page -->
-<script lang=ts>
+<script lang="ts">
      import Navbar from '$lib/components/Navbar.svelte';
      import Tags from '$lib/components/Tags.svelte'
      import { onMount } from 'svelte';

@@ -23,9 +23,9 @@
      {#if searchBarState !== "SEARCH"}
      <div>
           <!-- Mangase Button -->
-          <button class="bg-neutral-900 flex items-center size-9 text-[15px] rounded-2xl" onclick={() => {goto("/home")}}>
+          <a href="/" class="bg-neutral-900 flex items-center size-9 text-[15px] rounded-2xl" >
                <img src={Logo} alt="logo" class="object-fit">
-          </button>
+          </a>
           
      </div>
      {/if}
@@ -51,24 +51,24 @@
           
           {#if searchBarState === "MAIN"}
           <!-- Search Button -->
-          <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto("/search")}}>
+          <a href="/search" class="bg-neutral-900 p-2 rounded-2xl">
                <img alt="search" src={Search} class="invert size-5">
-          </button>
+          </a>
           <!-- Profile -->
           {#if profilePicURL}
-               <button class="bg-neutral-900 p-1 rounded-2xl" onclick={() => {goto(`/user/${page.data.user.name}`)}}>
+               <a href={"/user/" + page.data.user.name} class="bg-neutral-900 p-1 rounded-2xl">
                     <img alt="profile" src={profilePicURL} class="rounded-2xl size-7">
-               </button>
+               </a>
           {:else}
-               <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto(`/login`)}}>
+               <a href="/login" class="bg-neutral-900 p-2 rounded-2xl">
                     <img alt="profile" src={Profile} class="invert size-5">
-               </button>
+               </a>
           {/if}
           
           <!-- Settings -->
-          <button class="bg-neutral-900 p-2 rounded-2xl" onclick={() => {goto("/settings")}}>
+          <a href="/settings" class="bg-neutral-900 p-2 rounded-2xl">
                <img alt="setting" src={Settings} class="invert size-5">
-          </button>
+          </a>
           {/if}
           
      </div>

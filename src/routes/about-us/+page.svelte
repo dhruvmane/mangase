@@ -1,4 +1,4 @@
-<script lang=ts>
+<script lang="ts">
      import { marked } from "marked";
      import DOMPurify from "dompurify";
      import { onMount } from "svelte";

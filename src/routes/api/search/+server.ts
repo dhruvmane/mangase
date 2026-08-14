@@ -4,7 +4,6 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from "@sveltejs/kit";
 import { sql } from 'drizzle-orm';
 
-const API_URI = "https://api.mangadex.org"
 
 export const GET: RequestHandler = async ({ url }) => {
      // Log
